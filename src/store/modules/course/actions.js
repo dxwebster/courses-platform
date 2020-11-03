@@ -11,9 +11,10 @@ export function openModule(modules) {
   };
 }
 
-export function setModules(modules) {
+export function toggleLesson(module, lesson) {
   return {
-    type: 'SET_MODULES',
-    payload: modules,
+    type: 'TOGGLE_LESSON',
+    module,
+    lesson
   }
 }

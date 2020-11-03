@@ -13,9 +13,7 @@ function Sidebar() {
 
   const handleOpenModule = index => {
     const newModules = modules;
-
     newModules[index].open = !newModules[index].open;
-
     dispatch(CourseActions.openModule(newModules));
   }
 

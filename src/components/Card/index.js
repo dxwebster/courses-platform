@@ -4,12 +4,12 @@ import { Container } from './styles';
 
 import Video from '../Video';
 import Sidebar from '../Sidebar';
+
 import { useDispatch } from 'react-redux';
 import { setModules } from '../../store/modules/course/actions';
+
 import api from '../../services/api';
 
-import { setModules } from '../../store/modules/course/actions';
-import api from '../../services/api';
 
 const Card = () => {
   const dispatch = useDispatch();
