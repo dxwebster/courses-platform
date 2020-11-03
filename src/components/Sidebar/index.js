@@ -13,6 +13,7 @@ function Sidebar({ modules, dispatch }) {
         <div className={'module ' + (module.open ? 'open' : '')} key={module.id}>
           <h3 className="module-title" onClick={() => dispatch(CourseActions.openModule(module.open, index, modules))}>
             {module.title}
+            <span>{module.quantity} aulas </span>
           </h3>
 
           <ul>

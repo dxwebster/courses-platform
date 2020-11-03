@@ -1,3 +1,5 @@
+import api from '../../../services/api';
+
 const INITIAL_STATE = {
   activeModule: {},
   activeLesson: {},
@@ -10,6 +12,7 @@ const INITIAL_STATE = {
         { id: 2, title: 'Inspecionando o Código', video: '2' },
         { id: 3, title: 'Criando Components', video: '3' },
       ],
+      quantity: 3,
       open: true,
     },
     {
@@ -19,6 +22,7 @@ const INITIAL_STATE = {
         { id: 4, title: 'Porque utilizar Redux?', video: '4' },
         { id: 5, title: 'Actions, Reducers e Store', video: '5' },
       ],
+      quantity: 2,
       open: true,
     },
   ],
@@ -32,6 +36,12 @@ const INITIAL_STATE = {
 export default function course(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'TOGGLE_LESSON': {
+      async function getData() {
+        const { data } = await api.get('/modules');
+        console.log(data);
+      }
+      getData();
+
       return {
         ...state, // pega o estado que já existe
         activeLesson: action.lesson, // sobrepõe o valor da activeLesson com a lesson atual

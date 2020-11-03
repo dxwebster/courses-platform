@@ -19,11 +19,18 @@ export const Container = styled.div`
     h3 {
       position: relative;
       font-size: 20px;
-      padding: 10px 80px 10px 20px;
+      padding: 10px 80px 0px 20px;
       color: #49f2d2;
+      display: flex;
+      flex-direction: column;
 
       cursor: pointer;
       transition: all 0.4s ease;
+
+      span {
+        color: #fff;
+        font-size: 16px;
+      }
 
       &::after {
         content: '';
@@ -41,6 +48,10 @@ export const Container = styled.div`
 
         transition: all 0.4s ease-out;
       }
+    }
+
+    h4 {
+      padding: 0 80px 0px 20px;
     }
 
     ul {
