@@ -1,17 +1,29 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import * as CourseActions from '../../store/modules/course/actions';
 
 import { Container } from './styles';
 
-function Sidebar({ modules, dispatch }) {
+function Sidebar() {
+  const { modules } = useSelector(state => state.course);
+
+  const dispatch = useDispatch();
+
+  const handleOpenModule = index => {
+    const newModules = modules;
+
+    newModules[index].open = !newModules[index].open;
+
+    dispatch(CourseActions.openModule(newModules));
+  }
+
   return (
     <Container>
       {modules.map((module, index) => (
         <div className={'module ' + (module.open ? 'open' : '')} key={module.id}>
-          <h3 className="module-title" onClick={() => dispatch(CourseActions.openModule(module.open, index, modules))}>
+          <h3 className="module-title" onClick={() => handleOpenModule(index)}>
             {module.title}
             <span>{module.quantity} aulas </span>
           </h3>
@@ -29,6 +41,4 @@ function Sidebar({ modules, dispatch }) {
   );
 }
 
-export default connect((state) => ({
-  modules: state.course.modules,
-}))(Sidebar);
+export default Sidebar;
