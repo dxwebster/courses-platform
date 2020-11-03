@@ -5,11 +5,9 @@ export function toggleLesson(module, lesson) {
     lesson,
   };
 }
-export function openModule(open, index, modules) {
+export function openModule(modules) {
   return {
     type: 'OPEN_MODULE',
-    open,
-    index,
     modules,
   };
 }

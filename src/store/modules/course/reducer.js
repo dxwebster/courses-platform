@@ -14,7 +14,6 @@ const INITIAL_STATE = {
 export default function course(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'SET_MODULES': {
-      console.log(action)
       return {
         ...state,
         modules: action.payload,
@@ -30,24 +29,10 @@ export default function course(state = INITIAL_STATE, action) {
       };
     }
     case 'OPEN_MODULE': {
-      action.modules.map((module, moduleIndex) => {
-        if (moduleIndex === action.index) {
-          module.open = !module.open;
-
-          console.log(action.open);
-        } else {
-          module.open = false;
-        }
-        return {
-          ...state,
-          open: action.open,
-        };
-      });
-
-      // return {
-      //   ...state,
-      //   modules[action.index]: action.boolean
-      // }
+      return {
+        ...state,
+        modules: action.modules,
+      }
     }
 
     default:

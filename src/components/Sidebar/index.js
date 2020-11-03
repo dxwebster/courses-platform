@@ -11,11 +11,19 @@ function Sidebar() {
 
   const dispatch = useDispatch();
 
+  const handleOpenModule = index => {
+    const newModules = modules;
+
+    newModules[index].open = !newModules[index].open;
+
+    dispatch(CourseActions.openModule(newModules));
+  }
+
   return (
     <Container>
       {modules.map((module, index) => (
         <div className={'module ' + (module.open ? 'open' : '')} key={module.id}>
-          <h3 className="module-title" onClick={() => dispatch(CourseActions.openModule(module.open, index, modules))}>
+          <h3 className="module-title" onClick={() => handleOpenModule(index)}>
             {module.title}
             <span>{module.quantity} aulas </span>
           </h3>
