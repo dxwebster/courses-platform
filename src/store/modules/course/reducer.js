@@ -3,29 +3,7 @@ import api from '../../../services/api';
 const INITIAL_STATE = {
   activeModule: {},
   activeLesson: {},
-  modules: [
-    {
-      id: 1,
-      title: '1. Iniciando com React',
-      lessons: [
-        { id: 1, title: 'Introdução ao  React', video: '1' },
-        { id: 2, title: 'Inspecionando o Código', video: '2' },
-        { id: 3, title: 'Criando Components', video: '3' },
-      ],
-      quantity: 3,
-      open: true,
-    },
-    {
-      id: 2,
-      title: '2. Aprendendo Redux',
-      lessons: [
-        { id: 4, title: 'Porque utilizar Redux?', video: '4' },
-        { id: 5, title: 'Actions, Reducers e Store', video: '5' },
-      ],
-      quantity: 2,
-      open: true,
-    },
-  ],
+  modules: [],
 };
 
 // Essa função course é um reducer, que:
@@ -35,12 +13,15 @@ const INITIAL_STATE = {
 
 export default function course(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'TOGGLE_LESSON': {
-      async function getData() {
-        const { data } = await api.get('/modules');
-        console.log(data);
+    case 'SET_MODULES': {
+      console.log(action)
+      return {
+        ...state,
+        modules: action.payload,
       }
-      getData();
+    }
+    case 'TOGGLE_LESSON': {
+      
 
       return {
         ...state, // pega o estado que já existe
@@ -62,6 +43,11 @@ export default function course(state = INITIAL_STATE, action) {
           open: action.open,
         };
       });
+
+      // return {
+      //   ...state,
+      //   modules[action.index]: action.boolean
+      // }
     }
 
     default:

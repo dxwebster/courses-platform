@@ -1,12 +1,16 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import * as CourseActions from '../../store/modules/course/actions';
 
 import { Container } from './styles';
 
-function Sidebar({ modules, dispatch }) {
+function Sidebar() {
+  const { modules } = useSelector(state => state.course);
+
+  const dispatch = useDispatch();
+
   return (
     <Container>
       {modules.map((module, index) => (
@@ -29,6 +33,4 @@ function Sidebar({ modules, dispatch }) {
   );
 }
 
-export default connect((state) => ({
-  modules: state.course.modules,
-}))(Sidebar);
+export default Sidebar;

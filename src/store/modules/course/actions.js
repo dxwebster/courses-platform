@@ -13,3 +13,10 @@ export function openModule(open, index, modules) {
     modules,
   };
 }
+
+export function setModules(modules) {
+  return {
+    type: 'SET_MODULES',
+    payload: modules,
+  }
+}

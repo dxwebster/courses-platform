@@ -7,7 +7,9 @@
         { "id": 1, "title": "Introdução ao React", "video": "1" },
         { "id": 2, "title": "Inspecionando o Código", "video": "2" },
         { "id": 3, "title": "Criando Components", "video": "3" }
-      ]
+      ],
+      "open": true,
+      "quantity": 3
     },
     {
       "id": 2,
@@ -15,7 +17,10 @@
       "lessons": [
         { "id": 4, "title": "Porque utilizar Redux?", "video": "4" },
         { "id": 5, "title": "Actions, Reducers e Store", "video": "5" }
-      ]
+      ],
+
+      "open": true,
+      "quantity": 2
     }
   ]
 }
