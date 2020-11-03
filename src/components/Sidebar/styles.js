@@ -59,11 +59,6 @@ export const Container = styled.div`
       max-height: 0;
       overflow-y: hidden;
       transition: all 0.4s ease-out;
-    }
-
-    &.open ul {
-      max-height: 1000px;
-      opacity: 1;
 
       li {
         padding: 5px 20px;
@@ -74,6 +69,11 @@ export const Container = styled.div`
           transition: all 0.4s ease-out;
         }
       }
+    }
+
+    &.open ul {
+      max-height: 1000px;
+      opacity: 1;
     }
 
     &.open h3 {

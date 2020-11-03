@@ -17,7 +17,6 @@ const Card = () => {
   useEffect(() => {
     async function getData() {
       const { data } = await api.get('/modules');
-      console.log(data);
 
       dispatch(setModules(data));
     }

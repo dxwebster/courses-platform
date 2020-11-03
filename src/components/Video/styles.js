@@ -10,7 +10,9 @@ export const Container = styled.div`
   div {
     padding: 48px 40px 0;
   }
-  span {
+  iframe {
     margin: 20px 40px 0;
+    width: 90%;
+    height: 700px;
   }
 `;

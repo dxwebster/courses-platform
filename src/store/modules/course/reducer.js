@@ -1,13 +1,8 @@
 const INITIAL_STATE = {
-  activeModule: {},
-  activeLesson: {},
+  activeModule: { },
+  activeLesson: { },
   modules: [],
 };
-
-// Essa função course é um reducer, que:
-// 1. Armazena o estado inicial
-// 2. Verifica qual action foi disparada
-// 3. Retorna o estado modificado/manipulado
 
 export default function course(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -15,26 +10,26 @@ export default function course(state = INITIAL_STATE, action) {
       return {
         ...state,
         modules: action.payload,
-      }
+        activeModule: action.payload[0],
+        activeLesson: action.payload[0],
+      };
     }
 
     case 'TOGGLE_LESSON': {
       return {
-        ...state, 
-        activeLesson: action.lesson, // sobrepõe o valor da activeLesson com a lesson atual
-        activeModule: action.module, // sobrepõe o valor do activeModule com o module atual
+        ...state,
+        activeLesson: action.lesson,
+        activeModule: action.module,
       };
     }
     case 'OPEN_MODULE': {
       return {
         ...state,
         modules: action.modules,
-      }
+      };
     }
 
     default:
       return state;
   }
 }
-
-// evitar colocar lógica

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Container } from './styles';
 
 function Video() {
-  const { activeModule, activeLesson } = useSelector((state) => state.course); // pega o modules do estado 'course'
+  const { activeModule, activeLesson } = useSelector((state) => state.course);
 
   return (
     <Container>
@@ -14,7 +14,7 @@ function Video() {
         <h3>{activeLesson.title}</h3>
       </div>
 
-      <span>Vídeo: {activeLesson.video}</span>
+      <iframe  src={activeLesson.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </Container>
   );
 }
