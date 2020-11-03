@@ -4,20 +4,16 @@ export function setModules(modules){
     payload: modules,
   }
 }
-
-export function openModule(open, index, modules) {
+export function openModule(modules) {
   return {
     type: 'OPEN_MODULE',
-    open,
-    index,
     modules,
   };
 }
 
-export function toggleLesson(module, lesson) {
+export function setModules(modules) {
   return {
-    type: 'TOGGLE_LESSON',
-    module,
-    lesson,
-  };
+    type: 'SET_MODULES',
+    payload: modules,
+  }
 }

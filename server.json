@@ -8,8 +8,8 @@
         { "id": 2, "title": "Inspecionando o Código", "video": "2" },
         { "id": 3, "title": "Criando Components", "video": "3" }
       ],
-      "quantity": 3,
-      "open": true
+      "open": true,
+      "quantity": 3
     },
     {
       "id": 2,
@@ -18,8 +18,9 @@
         { "id": 4, "title": "Porque utilizar Redux?", "video": "4" },
         { "id": 5, "title": "Actions, Reducers e Store", "video": "5" }
       ],
-      "quantity": 2,
-      "open": true
+
+      "open": true,
+      "quantity": 2
     }
   ]
 }

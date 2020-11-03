@@ -9,23 +9,21 @@ import { Container } from './styles';
 function Sidebar() {
   const { modules } = useSelector(state => state.course);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  // action.modules.map((module, moduleIndex) => {
-  //   if (moduleIndex === action.index) {
-  //     module.open = !module.open;
+  const handleOpenModule = index => {
+    const newModules = modules;
 
-  //     console.log(action.open);
-  //   } else {
-  //     module.open = false;
-  //   }
+    newModules[index].open = !newModules[index].open;
 
+    dispatch(CourseActions.openModule(newModules));
+  }
 
   return (
     <Container>
       {modules.map((module, index) => (
         <div className={'module ' + (module.open ? 'open' : '')} key={module.id}>
-          <h3 className="module-title" onClick={() => dispatch(CourseActions.openModule(module.open, index, modules))}>
+          <h3 className="module-title" onClick={() => handleOpenModule(index)}>
             {module.title}
             <span>{module.quantity} aulas </span>
           </h3>

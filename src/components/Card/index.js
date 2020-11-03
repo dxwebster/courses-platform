@@ -1,25 +1,29 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { Container } from './styles';
 
 import Video from '../Video';
 import Sidebar from '../Sidebar';
+import { useDispatch } from 'react-redux';
+import { setModules } from '../../store/modules/course/actions';
+import api from '../../services/api';
 
 import { setModules } from '../../store/modules/course/actions';
 import api from '../../services/api';
 
 const Card = () => {
-  const dispatch = useDispatch(); // Hook do react-redux para disparar uma ação
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getData() {
       const { data } = await api.get('/modules');
+      console.log(data);
 
-      dispatch(setModules(data)); // disparo a ação setModules e envio a resposta da api
+      dispatch(setModules(data));
     }
+
     getData();
-  }, []);
+  }, [])
 
   return (
     <Container>

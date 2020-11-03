@@ -14,8 +14,8 @@ export default function course(state = INITIAL_STATE, action) {
     case 'SET_MODULES': {
       return {
         ...state,
-        modules: action.payload, // preenche o valor de modules com a resposta da api
-      };
+        modules: action.payload,
+      }
     }
 
     case 'TOGGLE_LESSON': {
@@ -25,12 +25,11 @@ export default function course(state = INITIAL_STATE, action) {
         activeModule: action.module, // sobrepõe o valor do activeModule com o module atual
       };
     }
-
     case 'OPEN_MODULE': {
       return {
         ...state,
-        open: action.open, // sobrepõe valor da open com true ou false
-      };
+        modules: action.modules,
+      }
     }
 
     default:
