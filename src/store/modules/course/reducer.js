@@ -11,7 +11,7 @@ export default function course(state = INITIAL_STATE, action) {
         ...state,
         modules: action.payload,
         activeModule: action.payload[0],
-        activeLesson: action.payload[0],
+        activeLesson: action.payload,
       };
     }
 
