@@ -1,0 +1,21 @@
+{
+  "modules": [
+    {
+      "id": 1,
+      "title": "Iniciando com React",
+      "lessons": [
+        { "id": 1, "title": "Introdução ao  React", "video": "1" },
+        { "id": 2, "title": "Inspecionando o Código", "video": "2" },
+        { "id": 3, "title": "Fazendo Component", "video": "2" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Aprendendo Redux",
+      "lessons": [
+        { "id": 4, "title": "Porque utilizar Redux?", "video": "3" },
+        { "id": 5, "title": "Actions, Reducers e Store", "video": "4" }
+      ]
+    }
+  ]
+}
