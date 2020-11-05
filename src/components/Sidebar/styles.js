@@ -1,26 +1,21 @@
 import styled from 'styled-components';
-
 import arrow from '../../assets/arrow-down-mint.svg';
 
 export const Container = styled.div`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  padding: 15px;
-  background-color: #0f1124;
+  background-color: ${(props) => props.theme.colors.lightBlue};
 
   .module {
-    margin: 15px;
-    padding: 15px 0;
-    background-color: #878fb83d;
-    border-radius: 8px;
+    background-color: ${(props) => props.theme.colors.darkBlue};
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
     h3 {
       position: relative;
       font-size: 20px;
-      padding: 10px 80px 0px 20px;
-      color: #49f2d2;
+      padding: 30px 80px 30px 20px;
+      color: ${(props) => props.theme.colors.title};
       display: flex;
       flex-direction: column;
 
@@ -61,12 +56,16 @@ export const Container = styled.div`
       transition: all 0.4s ease-out;
 
       li {
-        padding: 5px 20px;
+        padding: 20px;
+        background-color: ${(props) => props.theme.colors.lightBlue};
+        color: ${(props) => props.theme.colors.text};
 
         &:hover {
-          background-color: #414662;
+          background-color: ${(props) => props.theme.colors.darkBlue};
           cursor: pointer;
           transition: all 0.4s ease-out;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          color: #fff;
         }
       }
     }
@@ -77,8 +76,6 @@ export const Container = styled.div`
     }
 
     &.open h3 {
-      margin-bottom: 15px;
-
       &::after {
         transform: translateY(-50%) rotate(180deg);
       }

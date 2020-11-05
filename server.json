@@ -2,14 +2,18 @@
   "modules": [
     {
       "id": 1,
-      "title": "Iniciando com React",
+      "title": "HTML, CSS e Java Script",
       "lessons": [
-        { "id": 1, "title": "Introdução ao React", "video": "https://www.youtube.com/embed/sYe4r8WXGQg" },
-        { "id": 2, "title": "Inspecionando o Código", "video": "https://www.youtube.com/embed/hs3N1pYSgig" },
-        { "id": 3, "title": "Criando Components", "video": "https://www.youtube.com/embed/aJR7f45dBNs" }
+        { "id": 1, "title": "Criando um  Player de Áudio com Javascript", "video": "https://www.youtube.com/embed/vqrjFnq3-uo" },
+        { "id": 2, "title": "Desvendando a variável this no Javascript", "video": "https://www.youtube.com/embed/GSqR2i-Pq6o" },
+        { "id": 3, "title": "Array: Higher Order Functions", "video": "https://www.youtube.com/embed/rAzHvYnQ8DY" },
+        { "id": 4, "title": "Desvendando o CSS Grid na prática", "video": "https://www.youtube.com/embed/aJR7f45dBNs" },
+        { "id": 5, "title": "Formulário Animado com JS puro e CSS Animation", "video": "https://www.youtube.com/embed/GykTLqODQuU" },
+        { "id": 6, "title": "Criando função Debounce do Zero com JavaScript", "video": "https://www.youtube.com/embed/OyTPNNIy3pc" },
+        { "id": 7, "title": "Responsividade na Prática", "video": "https://www.youtube.com/embed/H91DhKPjhPk" }
       ],
       "open": true,
-      "quantity": 3
+      "quantity": 7
     },
     {
       "id": 2,

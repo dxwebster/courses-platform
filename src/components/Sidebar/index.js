@@ -2,22 +2,22 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import {openModule, toggleLesson} from '../../store/modules/course/actions';
+import { openModule, toggleLesson } from '../../store/modules/course/actions';
 
 import { Container } from './styles';
 
 function Sidebar() {
-  const { modules } = useSelector(state => state.course);
+  const { modules } = useSelector((state) => state.course);
 
   const dispatch = useDispatch();
 
-  const handleOpenModule = index => {
+  const handleOpenModule = (index) => {
     const newModules = modules;
-    
+
     newModules[index].open = !newModules[index].open;
-    
+
     dispatch(openModule(newModules));
-  }
+  };
 
   return (
     <Container>
@@ -31,7 +31,7 @@ function Sidebar() {
           <ul>
             {module.lessons.map((lesson) => (
               <li key={lesson.id} onClick={() => dispatch(toggleLesson(module, lesson))}>
-                {lesson.title}
+                {lesson.id}. {lesson.title}
               </li>
             ))}
           </ul>
