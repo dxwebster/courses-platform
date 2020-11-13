@@ -5,27 +5,24 @@ export const Container = styled.div`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  background-color: ${(props) => props.theme.colors.lightBlue};
+  background-color: ${(props) => props.theme.colors.darkBlue};
 
-  .module {
-    background-color: ${(props) => props.theme.colors.darkBlue};
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  section {
+    background-color: ${(props) => props.theme.colors.lightBlue};
+    margin-bottom: 3px;
 
-    h3 {
+    &.open div::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    div {
       position: relative;
       font-size: 20px;
-      padding: 30px 80px 30px 20px;
-      color: ${(props) => props.theme.colors.title};
+      padding: 30px 80px 30px 20px;            
       display: flex;
       flex-direction: column;
-
       cursor: pointer;
       transition: all 0.4s ease;
-
-      span {
-        color: #fff;
-        font-size: 16px;
-      }
 
       &::after {
         content: '';
@@ -43,11 +40,17 @@ export const Container = styled.div`
 
         transition: all 0.4s ease-out;
       }
+
+      h3 {
+        color: ${(props) => props.theme.colors.title};
+      }
+
+      span {
+        color: #fff;
+        font-size: 16px;
+      }
     }
 
-    h4 {
-      padding: 0 80px 0px 20px;
-    }
 
     ul {
       opacity: 0;
@@ -57,15 +60,18 @@ export const Container = styled.div`
 
       li {
         padding: 20px;
-        background-color: ${(props) => props.theme.colors.lightBlue};
         color: ${(props) => props.theme.colors.text};
+        transition: all 0.4s ease-out;
 
         &:hover {
           background-color: ${(props) => props.theme.colors.darkBlue};
           cursor: pointer;
-          transition: all 0.4s ease-out;
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-          color: #fff;
+          color: white;
+        }
+
+        &.active{
+          background-color: ${(props) => props.theme.colors.darkBlue};
+          color: white;
         }
       }
     }
@@ -75,10 +81,9 @@ export const Container = styled.div`
       opacity: 1;
     }
 
-    &.open h3 {
-      &::after {
-        transform: translateY(-50%) rotate(180deg);
-      }
-    }
   }
+
+
+
+
 `;

@@ -1,7 +1,7 @@
 export function setModules(modules){
   return{
     type: 'SET_MODULES',
-    payload: modules,
+    modules,
   }
 }
 export function openModule(modules) {
@@ -18,3 +18,4 @@ export function toggleLesson(module, lesson) {
     lesson
   }
 }
+

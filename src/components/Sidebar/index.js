@@ -1,41 +1,59 @@
 import React from 'react';
-
 import { useSelector, useDispatch } from 'react-redux';
-
 import { openModule, toggleLesson } from '../../store/modules/course/actions';
-
 import { Container } from './styles';
 
 function Sidebar() {
   const { modules } = useSelector((state) => state.course);
-
   const dispatch = useDispatch();
 
-  const handleOpenModule = (index) => {
-    const newModules = modules;
+  const handleOpenModule = (moduleIndex) => {
 
-    newModules[index].open = !newModules[index].open;
+    const newModule = (modules.map((newModule, newModuleIndex) => {
+      if (newModuleIndex === moduleIndex) {
+        newModule.open = !newModule.open
+      } else {
+        newModule.open = false
+      }
+      return newModule;
+    }))
 
-    dispatch(openModule(newModules));
+    dispatch(openModule(newModule));
+  };
+
+  const handleToggleLesson = (module, lesson, lessonIndex) => {
+
+    module.lessons.map((newLesson, newLessonIndex) => {
+      if (newLessonIndex === lessonIndex) {
+        newLesson.active = !newLesson.active
+      } else {
+        newLesson.active = false
+      }
+      return newLesson;
+    })
+
+    dispatch(toggleLesson(module, lesson));
   };
 
   return (
     <Container>
-      {modules.map((module, index) => (
-        <div className={'module ' + (module.open ? 'open' : '')} key={module.id}>
-          <h3 className="module-title" onClick={() => handleOpenModule(index)}>
-            {module.title}
+      {modules.map((module, moduleIndex) => (
+        
+        <section className={module.open ? 'open' : ''} key={module.id}>
+          
+          <div onClick={() => handleOpenModule(moduleIndex)}>
+            <h3>{module.title}</h3>
             <span>{module.quantity} aulas </span>
-          </h3>
+          </div>
 
           <ul>
-            {module.lessons.map((lesson) => (
-              <li key={lesson.id} onClick={() => dispatch(toggleLesson(module, lesson))}>
+            {module.lessons.map((lesson, lessonIndex) => (
+              <li key={lesson.id} id={lesson.id} className={lesson.active ? 'active' : ''} onClick={() => handleToggleLesson(module, lesson, lessonIndex)}>
                 {lesson.id}. {lesson.title}
               </li>
             ))}
           </ul>
-        </div>
+        </section>
       ))}
     </Container>
   );

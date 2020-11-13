@@ -1,8 +1,8 @@
-const theme = {
+ const theme = {
   title: 'main',
 
   colors: {
-    darkBlue: '#0f1124',
+    darkBlue: '#0b0c1b',
     lightBlue: '#11162f',
 
     text: '#9ca0bb',
@@ -10,4 +10,4 @@ const theme = {
   },
 };
 
-export default theme;
+export default theme

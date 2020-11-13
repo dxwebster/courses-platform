@@ -14,7 +14,7 @@ function Video() {
         <h3>{activeLesson.title}</h3>
       </div>
 
-      <iframe  src={activeLesson.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src={activeLesson.video} frameBorder="0" ></iframe>
     </Container>
   );
 }
