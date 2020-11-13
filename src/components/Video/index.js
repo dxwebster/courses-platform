@@ -9,12 +9,18 @@ function Video() {
 
   return (
     <Container>
-      <div>
-        <h1>{activeModule.title}</h1>
-        <h3>{activeLesson.title}</h3>
-      </div>
+      
+      {activeModule && activeLesson && (
+        <>
+          <div>
+            <h1>{activeModule.title}</h1>
+            <h3>{activeLesson.title}</h3>
+          </div>
 
-      <iframe src={activeLesson.video} frameBorder="0" ></iframe>
+          <iframe src={activeLesson.video} frameBorder="0" ></iframe>
+        </>
+      )}
+
     </Container>
   );
 }

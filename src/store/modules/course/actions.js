@@ -1,7 +1,8 @@
-export function setModules(modules){
+export function setModules(modules, lesson){
   return{
     type: 'SET_MODULES',
     modules,
+    lesson
   }
 }
 export function openModule(modules) {

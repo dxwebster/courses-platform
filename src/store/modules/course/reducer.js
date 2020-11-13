@@ -11,6 +11,8 @@ export default function course(state = INITIAL_STATE, action) {
         ...state,
         modules: action.modules,
 
+        activeModule: action.modules[0],
+        activeLesson: action.modules[0].lessons[0],
       };
     }
     case 'OPEN_MODULE': {
@@ -22,8 +24,8 @@ export default function course(state = INITIAL_STATE, action) {
     case 'TOGGLE_LESSON': {
       return {
         ...state,
-        activeLesson: action.lesson,
         activeModule: action.module,
+        activeLesson: action.lesson,
       };
     }
 

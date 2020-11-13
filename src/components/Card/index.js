@@ -19,6 +19,7 @@ const Card = () => {
       const { data } = await api.get('/modules');
 
       dispatch(setModules(data));
+
     }
 
     getData();
