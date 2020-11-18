@@ -9,6 +9,8 @@ import store from './store';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/themes/themeDefault'
 
+import { Login } from './pages/Login'
+
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <Container>
-            <Card />
+            <Login/>
           </Container>
         </Provider>
       </ThemeProvider>
