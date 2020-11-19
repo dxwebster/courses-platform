@@ -7,7 +7,7 @@ function Login() {
   return (
     <Container>
       <h1>Login</h1>
-      <button>
+      <button type="button">
         <Link to="/dashboard">Dashboard</Link>
       </button>
     </Container>

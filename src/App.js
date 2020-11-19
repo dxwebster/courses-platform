@@ -1,25 +1,23 @@
 import React from 'react';
+
 import { Provider } from 'react-redux';
-
-import { Container } from './styles/App';
-
-import Card from './components/Card';
-import store from './store';
+import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
-import theme from './styles/themes/themeDefault'
+import store from './store';
 
-import { Login } from './pages/Login'
+import Routes from './routes';
 
+import theme from './styles/themes/themeDefault';
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <Container>
-            <Login/>
-          </Container>
+          <BrowserRouter>
+            <Routes />
+          </BrowserRouter>
         </Provider>
       </ThemeProvider>
     </div>
