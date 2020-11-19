@@ -8,7 +8,7 @@ function Login() {
     <Container>
       <h1>Login</h1>
       <button type="button">
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/dashboard">Clique aqui </Link>
       </button>
     </Container>
   );

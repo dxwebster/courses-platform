@@ -9,7 +9,6 @@ function Video() {
 
   return (
     <Container>
-      
       {activeModule && activeLesson && (
         <>
           <div>
@@ -17,10 +16,9 @@ function Video() {
             <h3>{activeLesson.title}</h3>
           </div>
 
-          <iframe src={activeLesson.video} frameBorder="0" ></iframe>
+          <iframe src={activeLesson.video} frameBorder="0" title="video" />
         </>
       )}
-
     </Container>
   );
 }
