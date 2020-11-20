@@ -18,7 +18,7 @@ export const Container = styled.div`
     div {
       position: relative;
       font-size: 20px;
-      padding: 30px 80px 30px 20px;            
+      padding: 30px 80px 30px 20px;
       display: flex;
       flex-direction: column;
       cursor: pointer;
@@ -51,7 +51,6 @@ export const Container = styled.div`
       }
     }
 
-
     ul {
       opacity: 0;
       max-height: 0;
@@ -69,7 +68,7 @@ export const Container = styled.div`
           color: white;
         }
 
-        &.active{
+        &.active {
           background-color: ${(props) => props.theme.colors.darkBlue};
           color: white;
         }
@@ -80,10 +79,5 @@ export const Container = styled.div`
       max-height: 1000px;
       opacity: 1;
     }
-
   }
-
-
-
-
 `;

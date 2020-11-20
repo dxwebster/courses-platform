@@ -1,12 +1,12 @@
 const INITIAL_STATE = {
-  activeModule: { },
-  activeLesson: { },
+  activeModule: {},
+  activeLesson: {},
   modules: [],
 };
 
 export default function course(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'SET_MODULES': {
+    case 'LOAD_MODULES': {
       return {
         ...state,
         modules: action.modules,
@@ -21,7 +21,7 @@ export default function course(state = INITIAL_STATE, action) {
         modules: action.modules,
       };
     }
-    case 'TOGGLE_LESSON': {
+    case 'SELECT_LESSON': {
       return {
         ...state,
         activeModule: action.module,

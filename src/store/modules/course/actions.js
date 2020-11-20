@@ -1,9 +1,9 @@
-export function setModules(modules, lesson){
-  return{
-    type: 'SET_MODULES',
+export function loadModules(modules, lesson) {
+  return {
+    type: 'LOAD_MODULES',
     modules,
-    lesson
-  }
+    lesson,
+  };
 }
 export function openModule(modules) {
   return {
@@ -12,11 +12,10 @@ export function openModule(modules) {
   };
 }
 
-export function toggleLesson(module, lesson) {
+export function selectLesson(module, lesson) {
   return {
-    type: 'TOGGLE_LESSON',
+    type: 'SELECT_LESSON',
     module,
-    lesson
-  }
+    lesson,
+  };
 }
-

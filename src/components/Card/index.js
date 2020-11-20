@@ -6,7 +6,7 @@ import { Container } from './styles';
 import Video from '../Video';
 import Sidebar from '../Sidebar';
 
-import { setModules } from '../../store/modules/course/actions';
+import { loadModules } from '../../store/modules/course/actions';
 
 import api from '../../services/api';
 
@@ -17,7 +17,7 @@ const Card = () => {
     async function getData() {
       const { data } = await api.get('/modules');
 
-      dispatch(setModules(data));
+      dispatch(loadModules(data));
     }
 
     getData();
