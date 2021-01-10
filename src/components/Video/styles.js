@@ -13,6 +13,6 @@ export const Container = styled.div`
   iframe {
     margin: 20px 40px 0;
     width: 90%;
-    height: 700px;
+    height: 400px;
   }
 `;
