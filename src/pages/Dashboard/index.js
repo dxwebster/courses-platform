@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Menu, MenuSide, Avatar } from './styles';
 
-import Card from '../../components/Card';
+import Card from './components/Card';
 import arrowImg from '../../assets/arrow.svg';
 import noticeImg from '../../assets/notification.svg';
 import messagesImg from '../../assets/message.svg';

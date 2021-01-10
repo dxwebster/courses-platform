@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { openModule, selectLesson } from '../../store/modules/course/actions';
+import { openModule, selectLesson } from '../../../../store/modules/course/actions';
 import { Container } from './styles';
 
 function Sidebar() {
