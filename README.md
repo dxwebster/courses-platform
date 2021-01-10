@@ -1,3 +1,12 @@
+## Tecnologias utilizadas
+- yarn add axios
+- yarn add json-server
+- yarn add styled-components
+- yarn add redux
+- yarn add react-redux
+- yarn add react-router-dom
+
+
 ## 📥 Execute esse projeto no seu computador
 
 - Clonar Repositório: `git clone https://github.com/dxwebster/React-Redux`
