@@ -16,7 +16,7 @@ export default function Menu() {
         <li>
           <Link to="/login">
             <img src={arrowImg} alt="Home" />
-            Voltar
+            <span>Voltar</span>
           </Link>
         </li>
         <li>

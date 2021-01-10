@@ -27,9 +27,16 @@ export const Container = styled.header`
         margin-left: 30px;
       }
 
-      img {
-        margin-right: 7px;
-        width: 20px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+
+        img {
+          margin-right: 7px;
+          width: 20px;
+        }
       }
     }
   }
