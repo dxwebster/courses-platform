@@ -9,6 +9,8 @@ import store from './store';
 import Routes from './routes';
 
 import theme from './styles/themes/themeDefault';
+import GlobalStyle from './styles/global';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Provider store={store}>
           <BrowserRouter>
             <Routes />
+            <GlobalStyle />
           </BrowserRouter>
         </Provider>
       </ThemeProvider>

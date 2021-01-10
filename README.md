@@ -5,6 +5,8 @@
 - yarn add redux
 - yarn add react-redux
 - yarn add react-router-dom
+- yarn add polished
+- yarn add react-icons
 
 
 ## 📥 Execute esse projeto no seu computador
