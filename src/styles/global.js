@@ -21,6 +21,13 @@ input,
 button {
   border: none;
 }
+
+textarea:focus,
+input:focus, 
+button:focus{
+    outline: none;
+}
+
 li {
   list-style: none;
 }

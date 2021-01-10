@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
-
 export const Container = styled.div`
   height: 100vh;
   display: flex;
@@ -58,7 +57,7 @@ export const AnimationContainer = styled.div`
   }
 
   > a {
-    color: #ff9000;
+    color: ${(props) => props.theme.colors.title};
     display: block;
     margin-top: 24px;
     text-decoration: none;
@@ -70,12 +69,9 @@ export const AnimationContainer = styled.div`
       margin-right: 16px;
     }
     &:hover {
-      color:shade(0.2, '#ff9000');
     }
   }
 `;
-
-
 
 export const Input = styled.input`
   background: #232129;
@@ -90,14 +86,14 @@ export const Input = styled.input`
   & + input {
     margin-top: 8px;
   }
- 
+
   svg {
     margin-right: 16px;
   }
 `;
 
 export const Button = styled.button`
-  background: #ff9000;
+  background: ${(props) => props.theme.colors.title};
   height: 56px;
   border-radius: 10px;
   border: 0;
@@ -107,8 +103,8 @@ export const Button = styled.button`
   font-weight: 500;
   margin-top: 16px;
   transition: background-color 0.2s;
+  cursor: pointer;
 
   &:hover {
-    background: ${shade(0.2, '#ff9000')};
   }
 `;
