@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { openModule, selectLesson } from '../../../../store/modules/course/actions';
 import { Container } from './styles';
@@ -7,28 +7,31 @@ function Sidebar() {
   const { modules } = useSelector((state) => state.course);
   const dispatch = useDispatch();
 
-  const handleOpenModule = (moduleIndex) => {
-    modules[moduleIndex].open = !modules[moduleIndex].open;
-    dispatch(openModule(modules[moduleIndex]));
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
-  const handleSelectLesson = (module, lessonIndex) => {
-    modules.lessons[lessonIndex].active = !modules.lessons[lessonIndex].active;
-    dispatch(selectLesson(module, modules.lessons[lessonIndex]));
-  };
+  function handleOpenModule(moduleIndex) {
+    setIsOpen(!isOpen);
+    // dispatch(openModule(modules[moduleIndex]));
+  }
+
+  function handleSelectLesson(module, lessonIndex) {
+    setIsActive(!isActive);
+    // dispatch(selectLesson(module, modules.lessons[lessonIndex]));
+  }
 
   return (
     <Container>
       {modules.map((module, moduleIndex) => (
-        <section className={module.open ? 'open' : ''} key={module.id}>
-          <div onClick={() => handleOpenModule(moduleIndex)} aria-hidden="true">
+        <section key={module.id} onClick={() => handleOpenModule(moduleIndex)}>
+          <div>
             <h3>{module.title}</h3>
             <span>{module.quantity} aulas </span>
           </div>
 
-          <ul>
+          <ul isOpen={isOpen}>
             {module.lessons.map((lesson, lessonIndex) => (
-              <li key={lesson.id} id={lesson.id} className={lesson.active ? 'active' : ''} onClick={() => handleSelectLesson(module, lessonIndex)} aria-hidden="true">
+              <li key={lesson.id} id={lesson.id} onClick={() => handleSelectLesson(module, lessonIndex)}>
                 {lesson.id}. {lesson.title}
               </li>
             ))}

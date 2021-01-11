@@ -52,8 +52,8 @@ export const Container = styled.div`
     }
 
     ul {
-      opacity: 0;
-      max-height: 0;
+      opacity: ${(props) => (props.isOpen ? '1' : '0')};
+      max-height: ${(props) => (props.isOpen ? '1000px' : '0')};
       overflow-y: hidden;
       transition: all 0.4s ease-out;
 
@@ -73,11 +73,6 @@ export const Container = styled.div`
           color: white;
         }
       }
-    }
-
-    &.open ul {
-      max-height: 1000px;
-      opacity: 1;
     }
   }
 `;

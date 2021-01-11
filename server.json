@@ -4,12 +4,12 @@
       "id": 1,
       "title": "HTML, CSS e Java Script",
       "lessons": [
-        { "id": 1, "title": "Criando um  Player de Áudio com Javascript", "video": "https://www.youtube.com/embed/vqrjFnq3-uo", "active": true },
-        { "id": 2, "title": "Desvendando a variável this no Javascript", "video": "https://www.youtube.com/embed/GSqR2i-Pq6o", "active": false  },
-        { "id": 3, "title": "Array: Higher Order Functions", "video": "https://www.youtube.com/embed/rAzHvYnQ8DY", "active": false  },
-        { "id": 4, "title": "Formulário Animado com JS puro e CSS Animation", "video": "https://www.youtube.com/embed/GykTLqODQuU", "active": false  },
-        { "id": 5, "title": "Criando função Debounce do Zero com JavaScript", "video": "https://www.youtube.com/embed/OyTPNNIy3pc", "active": false  },
-        { "id": 6, "title": "Responsividade na Prática", "video": "https://www.youtube.com/embed/H91DhKPjhPk", "active": false  }
+        { "id": 1, "title": "Criando um  Player de Áudio com Javascript", "video": "https://www.youtube.com/embed/vqrjFnq3-uo" },
+        { "id": 2, "title": "Desvendando a variável this no Javascript", "video": "https://www.youtube.com/embed/GSqR2i-Pq6o" },
+        { "id": 3, "title": "Array: Higher Order Functions", "video": "https://www.youtube.com/embed/rAzHvYnQ8DY" },
+        { "id": 4, "title": "Formulário Animado com JS puro e CSS Animation", "video": "https://www.youtube.com/embed/GykTLqODQuU" },
+        { "id": 5, "title": "Criando função Debounce do Zero com JavaScript", "video": "https://www.youtube.com/embed/OyTPNNIy3pc" },
+        { "id": 6, "title": "Responsividade na Prática", "video": "https://www.youtube.com/embed/H91DhKPjhPk" }
       ],
       "open": true,
       "quantity": 7
@@ -18,8 +18,8 @@
       "id": 2,
       "title": "Aprendendo Redux",
       "lessons": [
-        { "id": 4, "title": "Porque utilizar Redux?", "video": "https://www.youtube.com/embed/6WB16wZS61c", "active": false  },
-        { "id": 5, "title": "Actions, Reducers e Store", "video": "https://www.youtube.com/embed/1nVUfZg2dSA", "active": false  }
+        { "id": 4, "title": "Porque utilizar Redux?", "video": "https://www.youtube.com/embed/6WB16wZS61c" },
+        { "id": 5, "title": "Actions, Reducers e Store", "video": "https://www.youtube.com/embed/1nVUfZg2dSA" }
       ],
 
       "open": false,
@@ -29,8 +29,8 @@
       "id": 3,
       "title": "Redux Saga",
       "lessons": [
-        { "id": 6, "title": "O que é Middleware", "video": "https://www.youtube.com/embed/qU9DesjDJic", "active": false  },
-        { "id": 7, "title": "Como utilizar", "video": "https://www.youtube.com/embed/69e1MoUWE1g", "active": false  }
+        { "id": 6, "title": "O que é Middleware", "video": "https://www.youtube.com/embed/qU9DesjDJic" },
+        { "id": 7, "title": "Como utilizar", "video": "https://www.youtube.com/embed/69e1MoUWE1g" }
       ],
 
       "open": false,
