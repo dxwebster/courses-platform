@@ -11,10 +11,6 @@ export const Container = styled.div`
     background-color: ${(props) => props.theme.colors.lightBlue};
     margin-bottom: 3px;
 
-    &.open div::after {
-      transform: translateY(-50%) rotate(180deg);
-    }
-
     div {
       position: relative;
       font-size: 20px;
@@ -29,7 +25,7 @@ export const Container = styled.div`
         position: absolute;
         top: 50%;
         right: 20px;
-        transform: translateY(-50%);
+        transform: ${props => (props.isOpen ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%)')} ;
         width: 30px;
         height: 30px;
 
@@ -51,28 +47,30 @@ export const Container = styled.div`
       }
     }
 
-    ul {
-      opacity: ${(props) => (props.isOpen ? '1' : '0')};
-      max-height: ${(props) => (props.isOpen ? '1000px' : '0')};
+    ul{
+      opacity: ${props => (props.isOpen ? '1' : '0')};
+      max-height: ${props => (props.isOpen ? '1000px' : '0')};
       overflow-y: hidden;
       transition: all 0.4s ease-out;
 
+      background-color: ${props => (props.isActive ? props.theme.colors.darkBlue : props.theme.colors.lightBlue)};
+      color: white;
+
       li {
         padding: 20px;
-        color: ${(props) => props.theme.colors.text};
+        color: ${props => props.theme.colors.text};
         transition: all 0.4s ease-out;
 
         &:hover {
-          background-color: ${(props) => props.theme.colors.darkBlue};
+          background-color: ${props => props.theme.colors.darkBlue};
           cursor: pointer;
-          color: white;
-        }
-
-        &.active {
-          background-color: ${(props) => props.theme.colors.darkBlue};
           color: white;
         }
       }
     }
   }
 `;
+
+
+
+
