@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-// import { openModule, selectLesson } from '../../../../store/modules/course/actions'; 
-import { Container } from './styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { openModule, selectLesson } from '../../../../store/modules/course/actions'; 
+import { Container, ModuleSection, LessonList, Lesson } from './styles';
+
 
 function Sidebar() {
   const { modules } = useSelector((state) => state.course);
-  // const dispatch = useDispatch();
-
-  const [isOpen, setIsOpen] = useState(false);
+  const [clickedModule, setClickedModule] = useState(null);
   const [isActive, setIsActive] = useState(false);
 
-  function handleOpenModule(moduleIndex) {
-    setIsOpen(!isOpen);
+  const dispatch = useDispatch();
+
+
+  function handleOpenModule(module, moduleIndex) {
+    console.log(moduleIndex)
+    if (moduleIndex === clickedModule) {
+      setClickedModule(null);
+    } else {
+      setClickedModule(moduleIndex);
+    }
     // dispatch(openModule(modules[moduleIndex]));
   }
 
@@ -21,25 +28,31 @@ function Sidebar() {
   }
 
   return (
-    <Container isOpen={isOpen}>
-      {modules.map((module, moduleIndex) => (
-        <section key={module.id} >
-          <div onClick={() => handleOpenModule(moduleIndex)}>
-            <h3>{module.title}</h3>
-            <span>{module.quantity} aulas </span>
-          </div>
+    <>
+      {modules.length && 
+        <Container >
+          {modules.map((module, moduleIndex) => (
+            <ModuleSection key={moduleIndex} >
+              
+              <div onClick={() => handleOpenModule(module, moduleIndex)}>
+                <h3>{module.title}</h3>
+                <span>{module.quantity} aulas </span>
+              </div>
 
-          <ul isActive={isActive}>
-            {module.lessons.map((lesson, lessonIndex) => (
-              <li key={lesson.id} id={lesson.id} onClick={() => handleSelectLesson(module, lessonIndex)} >
-                {lesson.id}. {lesson.title}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-    </Container>
+              <LessonList isOpen={moduleIndex === clickedModule} >
+                {module.lessons.map((lesson, lessonIndex) => (
+                  <Lesson key={lesson.id} id={lesson.id} onClick={() => handleSelectLesson(module, lessonIndex)} isActive={isActive}>
+                    {lesson.id}. {lesson.title}
+                  </Lesson>
+                ))}
+              </LessonList>
+            </ModuleSection>
+          ))}
+        </Container>
+      }
+    </>
   );
 }
 
 export default Sidebar;
+

@@ -1,21 +1,19 @@
-export function loadModules(modules, lesson) {
+export function loadModules(modules) {
   return {
     type: 'LOAD_MODULES',
-    modules,
-    lesson,
+    payload:  { modules }
   };
 }
 export function openModule(modules) {
   return {
     type: 'OPEN_MODULE',
-    modules,
+    payload: { modules }
   };
 }
 
 export function selectLesson(module, lesson) {
   return {
     type: 'SELECT_LESSON',
-    module,
-    lesson,
+    payload: { module, lesson }
   };
 }

@@ -3,9 +3,10 @@ import React from 'react';
 import { Container, MenuSide, Avatar } from './styles';
 import { Link } from 'react-router-dom';
 
-import arrowImg from '../../../../assets/arrow.svg';
-import noticeImg from '../../../../assets/notification.svg';
-import messagesImg from '../../../../assets/message.svg';
+import SvgArrowBack from '../../../../assets/SvgArrowBack';
+import SvgNotification from '../../../../assets/SvgNotification';
+import SvgMessage from '../../../../assets/SvgMessage';
+
 import logoImg from '../../../../assets/logo.svg';
 import avatarImg from '../../../../assets/avatar.png';
 
@@ -15,7 +16,7 @@ export default function Menu() {
       <ul>
         <li>
           <Link to="/login">
-            <img src={arrowImg} alt="Home" />
+            <SvgArrowBack />
             <span>Voltar</span>
           </Link>
         </li>
@@ -27,10 +28,10 @@ export default function Menu() {
       <MenuSide>
         <ul>
           <li>
-            <img src={noticeImg} alt="Notifications" />
+            <SvgNotification />
           </li>
           <li>
-            <img src={messagesImg} alt="Messages" />
+            <SvgMessage />
           </li>
         </ul>
 

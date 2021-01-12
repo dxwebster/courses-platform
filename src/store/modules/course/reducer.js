@@ -9,23 +9,22 @@ export default function course(state = INITIAL_STATE, action) {
     case 'LOAD_MODULES': {
       return {
         ...state,
-        modules: action.modules,
-
-        activeModule: action.modules[0],
-        activeLesson: action.modules[0].lessons[0],
+        modules: action.payload.modules,
+        activeModule: action.payload.modules[0],
+        activeLesson: action.payload.modules[0].lessons[0],
       };
     }
     case 'OPEN_MODULE': {
       return {
         ...state,
-        modules: action.modules,
+        modules: action.payload.modules,
       };
     }
     case 'SELECT_LESSON': {
       return {
         ...state,
-        activeModule: action.module,
-        activeLesson: action.lesson,
+        activeModule: action.payload.module,
+        activeLesson: action.payload.lesson,
       };
     }
 

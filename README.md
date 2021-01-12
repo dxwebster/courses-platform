@@ -8,6 +8,7 @@
 - yarn add react-router-dom
 - yarn add polished
 - yarn add react-icons
+- yarn add @svgr/cli --dev
 
 ## 📥 Execute esse projeto no seu computador
 

@@ -11,7 +11,7 @@ export const Container = styled.header`
   background: ${(props) => props.theme.colors.title};
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
   padding: 10px 20px;
-  color: white;
+  color: ${(props) => props.theme.colors.primary};
 
   ul {
     display: flex;
@@ -31,12 +31,12 @@ export const Container = styled.header`
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: ${(props) => props.theme.colors.primary};
 
-        img {
-          margin-right: 7px;
-          width: 20px;
+        svg{
+          margin-right: 8px;
         }
+
       }
     }
   }
@@ -48,10 +48,6 @@ export const MenuSide = styled.div`
   justify-content: center;
   font-size: 14px;
   font-weight: bold;
-
-  span {
-    margin: 0 10px;
-  }
 
   main {
     display: flex;
