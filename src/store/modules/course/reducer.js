@@ -14,17 +14,11 @@ export default function course(state = INITIAL_STATE, action) {
         activeLesson: action.payload.modules[0].lessons[0],
       };
     }
-    case 'OPEN_MODULE': {
-      return {
-        ...state,
-        modules: action.payload.modules,
-      };
-    }
     case 'SELECT_LESSON': {
       return {
         ...state,
-        activeModule: action.payload.module,
-        activeLesson: action.payload.lesson,
+        activeModule: action.payload.activeModule,
+        activeLesson: action.payload.activeLesson,
       };
     }
 

@@ -10,28 +10,26 @@ function Sidebar() {
   const { modules } = useSelector((state) => state.course);
   const [clickedModule, setClickedModule] = useState(null);
   const [clickedLesson, setClickedLesson] = useState(null);
-  const [isActive, setIsActive] = useState(false);
 
   const dispatch = useDispatch();
 
-  function handleOpenModule(module, moduleIndex) {
-    console.log(moduleIndex);
-    if (moduleIndex === clickedModule) {
+  function handleOpenModule(module) {
+    console.log(module.id);
+    if (module.id === clickedModule) {
       setClickedModule(null);
     } else {
-      setClickedModule(moduleIndex);
+      setClickedModule(module.id);
     }
-    // dispatch(openModule(modules[moduleIndex]));
   }
 
-  function handleSelectLesson(module, lessonIndex) {
-    if (lessonIndex === clickedLesson) {
+  function handleSelectLesson(module, lesson) {
+    if (lesson.id === clickedLesson) {
       setClickedLesson(null);
     } else {
-      setClickedLesson(lessonIndex);
+      setClickedLesson(lesson.id);
     }
 
-    // dispatch(selectLesson(module, modules.lessons[lessonIndex]));
+    dispatch(selectLesson(module, lesson));
   }
 
   return (
@@ -40,7 +38,7 @@ function Sidebar() {
         <Container>
           {modules.map((module, moduleIndex) => (
             <ModuleSection key={moduleIndex}>
-              <div onClick={() => handleOpenModule(module, moduleIndex)}>
+              <div onClick={() => handleOpenModule(module)}>
                 <h3>{module.title}</h3>
                 <span>{module.quantity} aulas </span>
               </div>
@@ -48,10 +46,10 @@ function Sidebar() {
               <LessonList isOpen={moduleIndex === clickedModule}>
                 {module.lessons.map((lesson, lessonIndex) => (
                   <Lesson
-                    key={lesson.id}
+                    key={lessonIndex}
                     id={lesson.id}
-                    onClick={() => handleSelectLesson(module, lessonIndex)}
-                    isActive={lessonIndex === clickedLesson}
+                    onClick={() => handleSelectLesson(module, lesson)}
+                    isActive={lesson.id === clickedLesson}
                   >
                     {lesson.id}. {lesson.title}
                   </Lesson>
