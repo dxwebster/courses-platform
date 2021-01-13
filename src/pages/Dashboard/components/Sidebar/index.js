@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  openModule,
   selectLesson,
 } from '../../../../store/modules/course/actions';
 import { Container, ModuleSection, LessonList, Lesson } from './styles';
@@ -40,7 +39,7 @@ function Sidebar() {
             <ModuleSection key={moduleIndex}>
               <div onClick={() => handleOpenModule(module, moduleIndex)}>
                 <h3>{module.title}</h3>
-                <span>{module.quantity} aulas </span>
+                <span>{module.quantity} aulas</span>
               </div>
 
               <LessonList isOpen={moduleIndex === clickedModule}>
