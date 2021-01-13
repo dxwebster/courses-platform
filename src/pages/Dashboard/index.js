@@ -17,10 +17,9 @@ export default function Dashboard() {
       try {
         const { data } = await api.get('/modules');
         dispatch(loadModules(data));
-
       } catch (err) {
-        console.log(err)
-      }     
+        console.log(err);
+      }
     }
     getData();
   }, []);

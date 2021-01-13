@@ -13,12 +13,12 @@ function Sidebar() {
 
   const dispatch = useDispatch();
 
-  function handleOpenModule(module) {
-    console.log(module.id);
-    if (module.id === clickedModule) {
+  function handleOpenModule(module, moduleIndex) {
+    console.log(moduleIndex);
+    if (moduleIndex === clickedModule) {
       setClickedModule(null);
     } else {
-      setClickedModule(module.id);
+      setClickedModule(moduleIndex);
     }
   }
 
@@ -38,7 +38,7 @@ function Sidebar() {
         <Container>
           {modules.map((module, moduleIndex) => (
             <ModuleSection key={moduleIndex}>
-              <div onClick={() => handleOpenModule(module)}>
+              <div onClick={() => handleOpenModule(module, moduleIndex)}>
                 <h3>{module.title}</h3>
                 <span>{module.quantity} aulas </span>
               </div>
