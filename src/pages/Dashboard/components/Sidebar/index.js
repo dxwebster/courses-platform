@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { openModule, selectLesson } from '../../../../store/modules/course/actions';
+import {
+  openModule,
+  selectLesson,
+} from '../../../../store/modules/course/actions';
 import { Container, ModuleSection, LessonList, Lesson } from './styles';
 
 function Sidebar() {
   const { modules } = useSelector((state) => state.course);
   const [clickedModule, setClickedModule] = useState(null);
+  const [clickedLesson, setClickedLesson] = useState(null);
   const [isActive, setIsActive] = useState(false);
 
   const dispatch = useDispatch();
@@ -21,7 +25,12 @@ function Sidebar() {
   }
 
   function handleSelectLesson(module, lessonIndex) {
-    setIsActive(!isActive);
+    if (lessonIndex === clickedLesson) {
+      setClickedLesson(null);
+    } else {
+      setClickedLesson(lessonIndex);
+    }
+
     // dispatch(selectLesson(module, modules.lessons[lessonIndex]));
   }
 
@@ -38,7 +47,12 @@ function Sidebar() {
 
               <LessonList isOpen={moduleIndex === clickedModule}>
                 {module.lessons.map((lesson, lessonIndex) => (
-                  <Lesson key={lesson.id} id={lesson.id} onClick={() => handleSelectLesson(module, lessonIndex)} isActive={isActive}>
+                  <Lesson
+                    key={lesson.id}
+                    id={lesson.id}
+                    onClick={() => handleSelectLesson(module, lessonIndex)}
+                    isActive={lessonIndex === clickedLesson}
+                  >
                     {lesson.id}. {lesson.title}
                   </Lesson>
                 ))}

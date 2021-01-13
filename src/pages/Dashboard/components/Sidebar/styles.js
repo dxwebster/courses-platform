@@ -26,7 +26,8 @@ export const ModuleSection = styled.section`
       position: absolute;
       top: 50%;
       right: 20px;
-      transform: ${props => (props.isOpen ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%)')} ;
+      transform: ${(props) =>
+        props.isOpen ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%)'};
       width: 20px;
       height: 20px;
 
@@ -47,29 +48,29 @@ export const ModuleSection = styled.section`
       font-size: 16px;
     }
   }
-`
-
+`;
 
 export const LessonList = styled.ul`
-  opacity: ${props => (props.isOpen ? '1' : '0')};
-  max-height: ${props => (props.isOpen ? '1000px' : '0')};
+  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  max-height: ${(props) => (props.isOpen ? '1000px' : '0')};
   overflow-y: hidden;
   transition: all 0.4s ease-out;
-
-  background-color: ${props => (props.isActive ? props.theme.colors.primary : props.theme.colors.secondary)};
+  background-color: ${(props) =>
+    props.isActive ? props.theme.colors.primary : props.theme.colors.secondary};
   color: white;
-
-  
-`
+`;
 
 export const Lesson = styled.li`
   padding: 20px;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   transition: all 0.4s ease-out;
+  background-color: ${(props) =>
+    props.isActive ? props.theme.colors.primary : props.theme.colors.secondary};
+  color: ${(props) => (props.isActive ? '#fff' : props.theme.colors.text)};
 
   &:hover {
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
     cursor: pointer;
     color: white;
   }
-`
+`;
