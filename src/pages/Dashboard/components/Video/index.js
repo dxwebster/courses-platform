@@ -1,14 +1,12 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
-
 import { Container } from './styles';
 
 function Video() {
-  const { activeModule, activeLesson } = useSelector((state) => state.course);
+  const { activeModule, activeLesson, collapseSidebar } = useSelector((state) => state.course);
 
   return (
-    <Container>
+    <Container sidebarIsCollapsed={collapseSidebar}>
       {activeModule && activeLesson && (
         <>
           <div>

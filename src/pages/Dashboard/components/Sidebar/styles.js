@@ -6,9 +6,8 @@ export const Container = styled.div`
   height: calc(100vh - 50px);
   margin: 0 auto;
   width: 100%;
-  max-width: ${(props) => props.isClosed ? '56px' : '390px'};
-  /* max-width: 390px;*/
-  /* transform: ${(props) => props.isClosed ? 'translateX(0)' : 'translateX(0)'};  */
+  max-width: 390px;
+  transform: ${(props) => props.isCollapsed ? 'translateX(330px)' : 'translateX(0)'}; 
   overflow: hidden;
   transition: all 0.4s ease;
 `;
@@ -31,14 +30,15 @@ export const ButtonSection = styled.section`
       background-repeat: no-repeat;
 
       transform: ${(props) =>
-        props.isClosed ? 'rotate(90deg)' : 'rotate(-90deg)'};
+        props.isCollapsed ? 'rotate(90deg)' : 'rotate(-90deg)'};
       transition: all 0.4s ease-out;
 
   }
 `
 export const ModuleSection = styled.section`
   background-color: ${(props) => props.theme.colors.primary};
-  overflow-y: ${(props) => props.isClosed ? 'hidden' : 'auto'};
+  opacity: ${(props) => props.isCollapsed ? '0' : '1'};
+  overflow-y: ${(props) => props.isCollapsed ? 'hidden' : 'auto'};
   overflow-x: hidden;
   transition: all 0.4s ease;
 

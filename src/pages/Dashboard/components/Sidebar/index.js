@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectLesson,
-} from '../../../../store/modules/course/actions';
 import { Container, ModuleList, LessonList, Lesson, ButtonSection, ModuleSection } from './styles';
 
+import { selectLesson, setCollapseSidebar} from '../../../../store/modules/course/actions';
+
 function Sidebar() {
-  const { modules } = useSelector((state) => state.course);
+  const { modules, collapseSidebar } = useSelector((state) => state.course);
   const [clickedModule, setClickedModule] = useState(null);
   const [clickedLesson, setClickedLesson] = useState(null);
-  const [closeSidebar, setCloseSidebar] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -32,18 +30,16 @@ function Sidebar() {
     dispatch(selectLesson(module, lesson));
   }
 
-
-
   return (
     <>
       {modules.length && (
-        <Container isClosed={closeSidebar}>
+        <Container isCollapsed={collapseSidebar}>
           
-          <ButtonSection isClosed={closeSidebar}>
-            <button onClick={() => setCloseSidebar(!closeSidebar)} />
+          <ButtonSection isCollapsed={collapseSidebar}>
+            <button onClick={() => dispatch(setCollapseSidebar(!collapseSidebar))} />
           </ButtonSection>
          
-          <ModuleSection isClosed={closeSidebar}>
+          <ModuleSection isCollapsed={collapseSidebar}>
             {modules.map((module, moduleIndex) => (
               <ModuleList key={moduleIndex} isOpen={moduleIndex === clickedModule}>
                 <div onClick={() => handleOpenModule(module, moduleIndex)}>

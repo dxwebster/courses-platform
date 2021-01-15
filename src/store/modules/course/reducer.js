@@ -2,6 +2,7 @@ const INITIAL_STATE = {
   activeModule: {},
   activeLesson: {},
   modules: [],
+  collapseSidebar: false,
 };
 
 export default function course(state = INITIAL_STATE, action) {
@@ -19,6 +20,13 @@ export default function course(state = INITIAL_STATE, action) {
         ...state,
         activeModule: action.payload.activeModule,
         activeLesson: action.payload.activeLesson,
+      };
+    }
+
+    case 'COLLAPSE_SIDEBAR': {
+      return {
+        ...state,
+        collapseSidebar: action.payload.collapseSidebar,
       };
     }
 

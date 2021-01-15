@@ -11,3 +11,10 @@ export function selectLesson(activeModule, activeLesson) {
     payload: { activeModule, activeLesson },
   };
 }
+
+export function setCollapseSidebar(collapseSidebar) {
+  return {
+    type: 'COLLAPSE_SIDEBAR',
+    payload: { collapseSidebar },
+  };
+}
