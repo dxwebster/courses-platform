@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   selectLesson,
 } from '../../../../store/modules/course/actions';
-import { Container, ModuleSection, LessonList, Lesson } from './styles';
+import { Container, ModuleList, LessonList, Lesson, ButtonSection, ModuleSection } from './styles';
 
 function Sidebar() {
   const { modules } = useSelector((state) => state.course);
   const [clickedModule, setClickedModule] = useState(null);
   const [clickedLesson, setClickedLesson] = useState(null);
+  const [closeSidebar, setCloseSidebar] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -31,31 +32,42 @@ function Sidebar() {
     dispatch(selectLesson(module, lesson));
   }
 
+
+
   return (
     <>
       {modules.length && (
-        <Container>
-          {modules.map((module, moduleIndex) => (
-            <ModuleSection key={moduleIndex}>
-              <div onClick={() => handleOpenModule(module, moduleIndex)}>
-                <h3>{module.title}</h3>
-                <span>{module.quantity} aulas</span>
-              </div>
+        <Container isClosed={closeSidebar}>
+          
+          <ButtonSection isClosed={closeSidebar}>
+            <button onClick={() => setCloseSidebar(!closeSidebar)} />
+          </ButtonSection>
+         
+          <ModuleSection isClosed={closeSidebar}>
+            {modules.map((module, moduleIndex) => (
+              <ModuleList key={moduleIndex} isOpen={moduleIndex === clickedModule}>
+                <div onClick={() => handleOpenModule(module, moduleIndex)}>
+                  <h3>{module.title}</h3>
+                  <span>{module.quantity} aulas</span>
+                </div>
 
-              <LessonList isOpen={moduleIndex === clickedModule}>
-                {module.lessons.map((lesson, lessonIndex) => (
-                  <Lesson
-                    key={lessonIndex}
-                    id={lesson.id}
-                    onClick={() => handleSelectLesson(module, lesson)}
-                    isActive={lesson.id === clickedLesson}
-                  >
-                    {lesson.id}. {lesson.title}
-                  </Lesson>
-                ))}
-              </LessonList>
-            </ModuleSection>
-          ))}
+                <LessonList isOpen={moduleIndex === clickedModule}>
+                  {module.lessons.map((lesson, lessonIndex) => (
+                    <Lesson
+                      key={lessonIndex}
+                      id={lesson.id}
+                      onClick={() => handleSelectLesson(module, lesson)}
+                      isActive={lesson.id === clickedLesson}
+                    >
+                      {lesson.id}. {lesson.title}
+                    </Lesson>
+                  ))}
+                </LessonList>
+              </ModuleList>
+            ))}
+          </ModuleSection>
+          
+         
         </Container>
       )}
     </>

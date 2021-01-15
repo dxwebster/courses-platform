@@ -12,7 +12,7 @@ body {
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #000;
+  background-color: ${(props) => props.theme.colors.background};
   height: 100vh;
   line-height: 1.5em;
 }

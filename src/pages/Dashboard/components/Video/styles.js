@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background: #090909;
 
   div {
     padding: 48px 40px 0;
@@ -15,5 +14,7 @@ export const Container = styled.div`
     margin: 20px 40px 0;
     width: 90%;
     height: 70%;
+    display: flex;
+    align-self: center;
   }
 `;
