@@ -11,7 +11,7 @@ function Sidebar() {
 
   const dispatch = useDispatch();
 
-  function handleOpenModule(module, moduleIndex) {
+  function handleOpenModule(moduleIndex) {
     console.log(moduleIndex);
     if (moduleIndex === clickedModule) {
       setClickedModule(null);
@@ -42,7 +42,7 @@ function Sidebar() {
           <ModuleSection isCollapsed={collapseSidebar}>
             {modules.map((module, moduleIndex) => (
               <ModuleList key={moduleIndex} isOpen={moduleIndex === clickedModule}>
-                <div onClick={() => handleOpenModule(module, moduleIndex)}>
+                <div onClick={() => handleOpenModule(moduleIndex)}>
                   <h3>{module.title}</h3>
                   <span>{module.quantity} aulas</span>
                 </div>
