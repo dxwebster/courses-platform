@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import api from '../../services/api';
 
 import { Container, Card } from './styles';
-import Menu from './components/Menu';
+import Menu from '../../components/Menu';
 import Video from './components/Video';
 import Sidebar from './components/Sidebar';
 import { loadModules } from '../../store/modules/course/actions';
