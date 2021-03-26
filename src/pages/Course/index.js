@@ -16,11 +16,9 @@ export default function Course() {
     const getData = () => {
       const { data } = api.get('/modules');
       dispatch(loadModules(data));
-    }
+    };
     getData();
   }, []);
-
-
 
   return (
     <Container>
