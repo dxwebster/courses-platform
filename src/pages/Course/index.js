@@ -13,16 +13,14 @@ export default function Course() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function getData() {
-      try {
-        const { data } = await api.get('/modules');
-        dispatch(loadModules(data));
-      } catch (err) {
-        console.log(err);
-      }
+    const getData = () => {
+      const { data } = api.get('/modules');
+      dispatch(loadModules(data));
     }
     getData();
   }, []);
+
+
 
   return (
     <Container>

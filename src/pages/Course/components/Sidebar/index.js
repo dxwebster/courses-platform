@@ -12,7 +12,6 @@ function Sidebar() {
   const dispatch = useDispatch();
 
   function handleOpenModule(moduleIndex) {
-    console.log(moduleIndex);
     if (moduleIndex === clickedModule) {
       setClickedModule(null);
     } else {
