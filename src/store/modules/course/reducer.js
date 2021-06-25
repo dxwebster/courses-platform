@@ -1,36 +1,40 @@
+import produce from 'immer';
+
+import {
+  TYPE_COURSE_MODULES_SUCCESS,
+  TYPE_COURSE_SELECT_LESSON,
+  TYPE_COURSE_COLLAPSE_SIDEBAR
+} from '../../../constants/types-reducers';
+
 const INITIAL_STATE = {
   activeModule: {},
   activeLesson: {},
-  modules: [],
+  modules: null,
   collapseSidebar: false,
 };
 
-export default function course(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case 'LOAD_MODULES': {
-      return {
-        ...state,
-        modules: action.payload.modules,
-        activeModule: action.payload.modules[0],
-        activeLesson: action.payload.modules[0].lessons[0],
-      };
-    }
-    case 'SELECT_LESSON': {
-      return {
-        ...state,
-        activeModule: action.payload.activeModule,
-        activeLesson: action.payload.activeLesson,
-      };
-    }
+export function course(state = INITIAL_STATE, action) {
+  return produce(state, draft => {
+    switch (action.type) {
+      case TYPE_COURSE_MODULES_SUCCESS: {
+        draft.modules = action.payload;
+        draft.activeModule = action.payload.modules[0];
+        draft.activeLesson = action.payload.modules[0].lessons[0];
+        break;
+      }
 
-    case 'COLLAPSE_SIDEBAR': {
-      return {
-        ...state,
-        collapseSidebar: action.payload.collapseSidebar,
-      };
-    }
+      case TYPE_COURSE_SELECT_LESSON : {
+        draft.activeModule = action.payload.activeModule;
+        draft.activeLesson = action.payload.activeLesson;
+          break;
+      }
 
-    default:
-      return state;
-  }
+      case TYPE_COURSE_COLLAPSE_SIDEBAR : {
+        draft.collapseSidebar = action.payload.collapseSidebar;
+          break;
+      }
+      default:
+        break;
+    }
+  });
 }

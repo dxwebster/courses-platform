@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, ModuleList, LessonList, Lesson, ButtonSection, ModuleSection } from './styles';
 
@@ -31,7 +31,7 @@ function Sidebar() {
 
   return (
     <>
-      {modules.length && (
+      {modules?.length && (
         <Container isCollapsed={collapseSidebar}>
           
           <ButtonSection isCollapsed={collapseSidebar}>

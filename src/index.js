@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './ReactotronConfig'
+import './config/ReactotronConfig'
 
 ReactDOM.render(
   <React.StrictMode>
