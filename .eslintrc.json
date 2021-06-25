@@ -57,14 +57,14 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       },
       "react": {
-        "extensions": [".ts", ".tsx", ".js", ".jsx"],
-      },
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
     },
     "react": {
-      "version": "detect",
+      "version": "detect"
     }
   }
 }

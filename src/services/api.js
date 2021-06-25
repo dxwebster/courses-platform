@@ -1,70 +1,29 @@
-const modules = [
-  {
-    id: 1,
-    title: "HTML, CSS e Java Script",
-    lessons: [
-      {
-        id: 1,
-        title: "Desvendando a variável this no Javascript",
-        video: "https://www.youtube.com/embed/GSqR2i-Pq6o"
-      },
-      {
-        id: 2,
-        title: "Array: Higher Order Functions",
-        video: "https://www.youtube.com/embed/rAzHvYnQ8DY"
-      },
-      {
-        id: 3,
-        title: "Formulário Animado com JS puro e CSS Animation",
-        video: "https://www.youtube.com/embed/GykTLqODQuU"
-      },
-      {
-        id: 4,
-        title: "Criando função Debounce do Zero com JavaScript",
-        video: "https://www.youtube.com/embed/OyTPNNIy3pc"
-      }
-    ],
-    "quantity": 4
-  },
+import axios from 'axios';
 
-  {
-    id: 2,
-    title: "Aprendendo Redux",
-    "lessons": [
-      {
-        id: 6,
-        title: "Porque utilizar Redux?",
-        video: "https://www.youtube.com/embed/6WB16wZS61c"
-      },
-      {
-        id: 7,
-        title: "Actions, Reducers e Store",
-        video: "https://www.youtube.com/embed/1nVUfZg2dSA"
-      },
-      {
-        id: 8,
-        title: "Responsividade na Prática",
-        video: "https://www.youtube.com/embed/H91DhKPjhPk"
+const api = axios.create({
+  baseURL: "http://localhost:3333/",
+});
+
+api.registerInterceptWithStore = store => {
+  api.interceptors.response.use(
+    response => {
+      if (
+        response.data &&
+        !response.data.success &&
+        (response.data.httpStatusCode === 403 || response.data.httpStatusCode === 401)
+      ) {
+        alert("SignOut")
       }
-    ],
-    "quantity": 3
-  },
-  
-  {
-    id: 3,
-    title: "Ambiente de Desenvolvimento",
-    "lessons": [
-      {
-        id: 9,
-        title: "O que é Middleware",
-        video: "https://www.youtube.com/embed/qU9DesjDJic"
-      },
-      {
-        id: 10,
-        title: "Como utilizar",
-        video: "https://www.youtube.com/embed/69e1MoUWE1g"
+
+      return response;
+    },
+    err => {
+      if (err.response.status === 403 || err.response.status === 401) {
+        alert("SignOut")
       }
-    ],
-    "quantity": 2
-  }
-]
+      return err;
+    },
+  );
+};
+
+export default api;

@@ -6,10 +6,10 @@ import {
   TYPE_COURSE_COLLAPSE_SIDEBAR
 } from '../../../constants/types-reducers'
 
-export function modulesRequest(boolean) {
+export function modulesRequest(courseId) {
   return {
     type: TYPE_COURSE_MODULES_REQUEST,
-    payload: boolean,
+    payload: courseId,
   };
 }
 export function modulesSuccess(modules) {
@@ -18,10 +18,10 @@ export function modulesSuccess(modules) {
     payload: modules,
   };
 }
-export function modulesFailure(modules) {
+export function modulesFailure(error) {
   return {
     type: TYPE_COURSE_MODULES_FAILURE,
-    payload: modules ,
+    payload: error ,
   };
 }
 
