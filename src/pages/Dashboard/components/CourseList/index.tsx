@@ -40,7 +40,7 @@ export default function CourseList() {
     <Container>
       {courses &&
         courses.map((course: any) => (
-          <CourseItem id={course.id}>
+          <CourseItem key={course.id}>
             <Link to="/course" onClick={() => dispatch(modulesRequest(course.id))}>
               <img src={course.img} alt="course-img" />
               <div className="title-box">

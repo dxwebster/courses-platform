@@ -11,6 +11,8 @@ import Routes from './routes';
 import theme from './styles/themes/themeDefault';
 import GlobalStyle from './styles/global';
 
+import './config/ReactotronConfig';
+
 
 function App() {
   return (

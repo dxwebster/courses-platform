@@ -9,7 +9,7 @@ import {
 export function modulesRequest(courseId) {
   return {
     type: TYPE_COURSE_MODULES_REQUEST,
-    payload: courseId,
+    payload: { courseId },
   };
 }
 export function modulesSuccess(modules) {
@@ -21,7 +21,7 @@ export function modulesSuccess(modules) {
 export function modulesFailure(error) {
   return {
     type: TYPE_COURSE_MODULES_FAILURE,
-    payload: error ,
+    payload: error,
   };
 }
 

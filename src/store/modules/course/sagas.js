@@ -1,24 +1,30 @@
 import React from 'react';
-import { takeLatest, all} from 'redux-saga/effects';
+import { takeLatest, all, put, call} from 'redux-saga/effects';
 
 import { modulesSuccess, modulesFailure} from './actions';
 
 import { TYPE_COURSE_MODULES_REQUEST } from '../../../constants/types-reducers'
+import api from '../../../services/api';
 
 export function* getModules({ payload }) { 
-  try {
-    const { courseId } = payload;
-    const url = `course/modules/${courseId}`;
-    const { data } = yield call(api.get, url, configs);
+  const { courseId } = payload;
 
-    if (!data.success) throw data;
+  try {
+    const url = `course/modules/${courseId}`;
+    const { data } = yield call(api.get, url, null);
 
     yield modulesSuccess(data);
+
+    console.log(data)
     
   } catch (err) {
-    const error = err.result ? err.result : { message: 'Erro ao buscar avisos' };
+    const error = err.result ? err.result : { message: `Erro ao buscar módulos do curso selecionado.` };
+
+    console.log(err)
+    alert(error.message)
 
     yield put(modulesFailure(error));
+    
   }
 }
 
