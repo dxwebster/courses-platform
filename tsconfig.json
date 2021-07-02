@@ -20,5 +20,15 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "react-app-env.d.ts"]
+  "include": [
+    "src/**/*.ts" // *** The files TypeScript should type check ***
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/server/**/*"
+  ], // *** The files to not type check ***
+  "types": [
+    "node"
+  ]
 }

@@ -6,7 +6,9 @@ import rootSaga from './modules/rootSaga';
 
 import api from '../services/api';
 
-const sagaMonitor = process.env.ENVIRONMENT === 'development' ? console.tron.createSagaMonitor() : null;
+import '../config/ReactotronConfig';
+
+const sagaMonitor = process.env.REACT_APP_ENVIRONMENT === 'development' ? console.tron.createSagaMonitor() : null;
 
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 

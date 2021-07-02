@@ -21,7 +21,7 @@ function App() {
   const configs: any = getConfigs();
 
   console.info(`==> 🌎  Você está no modo ${process.env.NODE_ENV}`);
-  console.info(`==> 🌎  Você está no ambiente ${process.env.ENVIRONMENT}`);
+  console.info(`==> 🌎  Você está no ambiente ${process.env.REACT_APP_ENVIRONMENT}`);
 
   return (
     <Provider store={store}>

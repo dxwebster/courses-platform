@@ -5,19 +5,14 @@ import Reactotron from 'reactotron-react-js';
 import { reactotronRedux } from 'reactotron-redux';
 import reactotronSaga from 'reactotron-redux-saga';
 
-// Reactotron.configure({ name: 'Courses Platform', environment: 'development' })
-//   .use(reactotronRedux())
-//   .use(reactotronSaga({ except: [''] }))
-//   .connect();
-
 declare global {
   interface Console {
     tron: any;
   }
 }
 
-if (process.env.ENVIRONMENT === 'development') {
-  const tron = Reactotron.configure()
+if (process.env.REACT_APP_ENVIRONMENT === 'development') {
+  const tron = Reactotron.configure({ name: 'Courses Platform', environment: 'development' })
     .use(reactotronRedux())
     .use(reactotronSaga({ except: [''] }))
     .connect();
