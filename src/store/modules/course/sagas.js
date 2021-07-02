@@ -14,16 +14,13 @@ export function* getModules({ payload }) {
     const { data } = yield call(api.get, url, null);
 
     yield modulesSuccess(data);
-
     console.log(data)
     
   } catch (err) {
     const error = err.result ? err.result : { message: `Erro ao buscar módulos do curso selecionado.` };
 
-    console.log(err)
-    alert(error.message)
-
     yield put(modulesFailure(error));
+    alert(error.message)
     
   }
 }

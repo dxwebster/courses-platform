@@ -6,7 +6,7 @@ import {
   TYPE_COURSE_COLLAPSE_SIDEBAR
 } from '../../../constants/types-reducers';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   activeModule: {},
   activeLesson: {},
   modules: null,
@@ -34,7 +34,6 @@ export function course(state = INITIAL_STATE, action) {
           break;
       }
       default:
-        break;
     }
   });
 }

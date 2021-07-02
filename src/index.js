@@ -4,10 +4,12 @@ import App from './App';
 
 import  { createServer } from 'miragejs'
 
+import './config/ReactotronConfig'
+
 createServer({
   routes(){
     this.namespace = 'api';
-
+    
     this.get('/course/modules/1', () => {
       return[
         {
