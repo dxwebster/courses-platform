@@ -1,6 +1,11 @@
 import React from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import history from '../../services/history';
+
+import { setLogin } from '../../store/modules/auth/actions';
 
 import {
   Container,
@@ -11,10 +16,11 @@ import {
 } from './styles';
 
 export default function Signin() {
-  const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
     history.push('/dashboard');
+    dispatch(setLogin(true))
   };
 
   return (

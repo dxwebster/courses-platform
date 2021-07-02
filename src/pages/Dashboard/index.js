@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Menu from '../../components/Menu';
+import Header from '../../components/Header';
 import CourseList from './components/CourseList';
 import { Container } from './styles';
 
 export default function Dashboard() {
   return (
     <Container>
-      <Menu />
+      <Header />
       <CourseList />
     </Container>
   );

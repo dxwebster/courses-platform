@@ -17,7 +17,7 @@ export const Container = styled.header`
   position: relative;
 
 `;
-export const MenuLeft = styled.div`
+export const HeaderLeft = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,7 @@ export const MenuLeft = styled.div`
   }
 `
 
-export const MenuRight = styled.div`
+export const HeaderRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,7 +105,7 @@ export const Avatar = styled.img`
   cursor: pointer;
 `;
 
-export const TooltipMenu = styled.div`
+export const TooltipHeader = styled.div`
   width: 200px;
   font-size: 14px;
 

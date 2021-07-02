@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import arrow from '../../../../assets/arrowDown.png';
+import arrow from '../../../../../../assets/arrowDown.png';
 
 export const Container = styled.div`
   display: flex;

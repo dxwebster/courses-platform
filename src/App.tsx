@@ -24,16 +24,14 @@ function App() {
   console.info(`==> 🌎  Você está no ambiente ${process.env.ENVIRONMENT}`);
 
   return (
-    <div className="App">
+    <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <Router history={history}>
-            <Routes configs={configs} />
-            <GlobalStyle />
-          </Router>
-        </Provider>
+        <Router history={history}>
+          <Routes configs={configs} />
+          <GlobalStyle />
+        </Router>
       </ThemeProvider>
-    </div>
+    </Provider>
   );
 }
 

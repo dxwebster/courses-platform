@@ -1,10 +1,12 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
-import Course from '../pages/Course';
+import Course from '../pages/Dashboard/components/Course';
+
+import Route from './Route';
 
 export default function Routes({ configs }: any) {
   return (

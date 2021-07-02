@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, MenuRight, MenuLeft, Avatar, TooltipMenu } from './styles';
+import { Container, HeaderRight, HeaderLeft, Avatar, TooltipHeader } from './styles';
 
 import SvgArrowBack from '../../assets/SvgArrowBack';
 import SvgNotification from '../../assets/SvgNotification';
 import SvgMessage from '../../assets/SvgMessage';
 import SvgProfile from '../../assets/SvgProfile';
-
 import logoImg from '../../assets/logo.svg';
 import avatarImg from '../../assets/avatar.png';
 
-export default function Menu() {
+export default function Header() {
 
   const [fixed, setFixed] = useState(null);
 
   return (
     <>
       <Container>
-        <MenuLeft>
+        <HeaderLeft>
           <ul>
             <li>
               <Link to="/dashboard">
@@ -30,9 +29,9 @@ export default function Menu() {
               <img src={logoImg} alt="logo" />
             </li>
           </ul>
-        </MenuLeft>
+        </HeaderLeft>
 
-        <MenuRight>
+        <HeaderRight>
           <ul>
             <li>
               <SvgNotification />
@@ -46,16 +45,16 @@ export default function Menu() {
             <p>Adriana Shikasho</p>
             <Avatar src={avatarImg} alt="Avatar"/>
           </main>
-        </MenuRight>
+        </HeaderRight>
   
-        <TooltipMenu fixed={fixed}>
+        <TooltipHeader fixed={fixed}>
           <ul>
             <li><SvgProfile /> Meu perfil</li>
             <li><SvgProfile /> Meus cursos</li>
             <li><SvgProfile /> Configurações</li>
             <li><SvgProfile /> Sair</li>
           </ul>
-        </TooltipMenu>
+        </TooltipHeader>
       </Container>
     </>
   );

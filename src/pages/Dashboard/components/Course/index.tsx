@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Container, Card } from './styles';
-import Menu from '../../components/Menu';
+import Header from '../../../../components/Header';
 import Video from './components/Video';
 import Sidebar from './components/Sidebar';
 
 export default function Course() {
   return (
     <Container>
-      <Menu />
+      <Header />
       <Card>
         <Video />
         <Sidebar />
