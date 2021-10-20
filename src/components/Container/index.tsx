@@ -8,7 +8,7 @@ interface ContainerProps {
 }
 
 export default function Container({ children }: ContainerProps) {
-  return <ContainerStyle id="app">{children}</ContainerStyle>;
+  return <ContainerStyle>{children}</ContainerStyle>;
 }
 
 Container.propTypes = {

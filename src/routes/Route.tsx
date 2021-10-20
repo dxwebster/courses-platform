@@ -2,26 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
-import { useSelector, RootStateOrAny } from 'react-redux';
-
-import Container from '../components/Container';
-import Header from '../components/Header';
 
 export default function RouteWrapper({ component: Component, configs, ...rest }: any) {
-  const { logged } = useSelector((state: RootStateOrAny) => state.auth);
-
-  if (logged) {
-    return (
-      <>
-        <Header />
-        <Container>
-          <Route render={(props) => <Component {...props} configs={configs} />} {...rest} />
-        </Container>
-      </>
-    );
-  }
-
-  return <Route render={(props) => <Component {...props} configs={configs} />} {...rest} />;
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        <Component {...props} configs={configs} />;
+      }}
+    />
+  );
 }
 
 RouteWrapper.propTypes = {

@@ -20,7 +20,7 @@ export default function Header() {
         <HeaderLeft>
           <ul>
             <li>
-              <Link to="/dashboard">
+              <Link to="/">
                 <SvgArrowBack />
                 <span>Voltar</span>
               </Link>

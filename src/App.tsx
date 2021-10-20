@@ -1,37 +1,35 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 import React from 'react';
-
-import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
-
-import { ThemeProvider } from 'styled-components';
-import { store } from './store';
-
-import Routes from './routes';
-import history from './services/history';
-
-import theme from './styles/themes/themeDefault';
-import GlobalStyle from './styles/global';
+import { Router, Switch } from 'react-router-dom';
+import { Route } from 'react-router';
 
 import './config/ReactotronConfig';
+import AppProvider from './hooks';
 
-import { getConfigs } from './config/environment';
+import history from './services/history';
+
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Course from './pages/Dashboard/components/Course';
+
+import GlobalStyle from './styles/global';
 
 function App() {
-  const configs: any = getConfigs();
-
   console.info(`==> 🌎  Você está no modo ${process.env.NODE_ENV}`);
   console.info(`==> 🌎  Você está no ambiente ${process.env.REACT_APP_ENVIRONMENT}`);
 
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Router history={history}>
-          <Routes configs={configs} />
-          <GlobalStyle />
-        </Router>
-      </ThemeProvider>
-    </Provider>
+    <AppProvider>
+      <Router history={history}>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/course" exact component={Course} />
+        </Switch>
+      </Router>
+      <GlobalStyle />
+    </AppProvider>
   );
 }
 
