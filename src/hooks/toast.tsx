@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import { v4 } from 'uuid';
-
 import Toast from '../components/Toast';
 
 export interface ToastMessageState {
@@ -45,7 +44,10 @@ const ToastProvider: React.FC = ({ children }) => {
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
-      <Toast messages={messages} />
+
+      {messages.map((message, index) => (
+        <Toast key={index} message={message} />
+      ))}
     </ToastContext.Provider>
   );
 };

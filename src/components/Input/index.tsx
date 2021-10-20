@@ -2,7 +2,8 @@
 /* eslint-disable react/prop-types */
 import React, { useRef, useEffect } from 'react';
 import { useField } from '@unform/core';
-import { InputStyle } from './styles';
+import { FiAlertCircle } from 'react-icons/fi';
+import { Container, InputStyle, Error } from './styles';
 
 export default function Input({ name, ...rest }) {
   const inputRef = useRef(null);
@@ -26,14 +27,14 @@ export default function Input({ name, ...rest }) {
   }, [fieldName, registerField]);
 
   return (
-    <>
+    <Container>
       <InputStyle id={fieldName} ref={inputRef} defaultValue={defaultValue} {...rest} />
 
       {error && (
-        <span className="error" style={{ color: 'red' }}>
-          {error}
-        </span>
+        <Error title={error}>
+          <FiAlertCircle color="#c53030" size={20} />
+        </Error>
       )}
-    </>
+    </Container>
   );
 }
