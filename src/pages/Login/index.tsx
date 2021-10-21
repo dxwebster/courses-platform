@@ -1,15 +1,17 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as Yup from 'yup';
 import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { signInRequest } from '../../store/modules/auth/actions';
 import { Container, Content, AnimationContainer, Button } from './styles';
 import Input from '../../components/Input';
+
+import useToast from '../../hooks/useToast';
 
 interface FormData {
   user: string;
@@ -17,8 +19,10 @@ interface FormData {
 }
 
 export default function Login() {
+  const { credencialError } = useSelector((state: RootStateOrAny) => state.auth);
   const formRef = useRef<FormHandles>(null);
   const dispatch = useDispatch();
+  const { addToast } = useToast();
 
   const yupError = (err: any) => {
     const validationErrors = {};
@@ -62,6 +66,21 @@ export default function Login() {
       dispatch(signInRequest(user, senha));
     }
   };
+
+  const toastError = (title, message) => {
+    addToast({
+      type: 'error',
+      title,
+      description: message,
+    });
+  };
+
+  useEffect(() => {
+    if (credencialError !== '') {
+      toastError('Erro na Autenticação', ' Credenciais inválidas');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [credencialError]);
 
   return (
     <Container>

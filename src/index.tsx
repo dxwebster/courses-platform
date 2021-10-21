@@ -4,6 +4,7 @@ import { createServer } from 'miragejs';
 import App from './App';
 
 import { modules } from './mocks/modules-data';
+import { authData } from './mocks/auth-data';
 
 createServer({
   routes() {
@@ -11,6 +12,10 @@ createServer({
 
     this.get('/course/modules/1', () => {
       return modules;
+    });
+
+    this.get('/auth', () => {
+      return authData;
     });
   },
 });

@@ -5,7 +5,7 @@ import { Router, Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 
 import './config/ReactotronConfig';
-import AppProvider from './hooks';
+import AppProvider from './providers/AppProvider';
 
 import history from './services/history';
 

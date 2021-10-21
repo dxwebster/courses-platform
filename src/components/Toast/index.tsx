@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { FiAlertCircle, FiCheckCircle, FiInfo, FiXCircle } from 'react-icons/fi';
+import useToast from '../../hooks/useToast';
 
-import { useToast } from '../../hooks/toast';
 import { Container } from './styles';
 
 const icons = {
@@ -11,7 +11,7 @@ const icons = {
   success: <FiCheckCircle size={24} />,
 };
 
-export default function Toast({ message }) {
+export default function Toast({ message }: any) {
   const { removeToast } = useToast();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Toast({ message }) {
 
   return (
     <Container type={message.type}>
-      {icons[message.type || 'info']}
+      {icons.error}
       <div>
         <strong>{message.title}</strong>
         {message.description && <p>{message.description}</p>}

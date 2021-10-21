@@ -6,15 +6,12 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../styles/themes/themeDefault';
 import { store } from '../store';
 
-import { AuthProvider } from './auth';
-import { ToastProvider } from './toast';
+import { ToastProvider } from './ToastProvider';
 
-const AppProvider = ({ children }) => (
+const AppProvider = ({ children }: any) => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      <AuthProvider>
-        <ToastProvider>{children}</ToastProvider>
-      </AuthProvider>
+      <ToastProvider>{children}</ToastProvider>
     </ThemeProvider>
   </Provider>
 );
