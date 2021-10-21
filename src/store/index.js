@@ -10,7 +10,9 @@ import '../config/ReactotronConfig';
 
 const sagaMonitor = process.env.REACT_APP_ENVIRONMENT === 'development' ? console.tron.createSagaMonitor() : null;
 
-const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+const sagaMiddleware = createSagaMiddleware({ 
+  sagaMonitor,
+});
 
 const middlewares = [sagaMiddleware];
 

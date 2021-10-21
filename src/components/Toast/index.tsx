@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { FiAlertCircle, FiCheckCircle, FiInfo, FiXCircle } from 'react-icons/fi';
 import useToast from '../../hooks/useToast';
 
@@ -12,6 +12,7 @@ const icons = {
 };
 
 export default function Toast({ message }: any) {
+  // exemplo com hook useToast customizado
   const { removeToast } = useToast();
 
   useEffect(() => {

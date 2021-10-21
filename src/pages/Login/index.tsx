@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import * as Yup from 'yup';
 import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
@@ -10,8 +10,7 @@ import { Link } from 'react-router-dom';
 import { signInRequest } from '../../store/modules/auth/actions';
 import { Container, Content, AnimationContainer, Button } from './styles';
 import Input from '../../components/Input';
-
-import useToast from '../../hooks/useToast';
+import { ToastContext } from '../../providers/ToastProvider';
 
 interface FormData {
   user: string;
@@ -22,7 +21,9 @@ export default function Login() {
   const { credencialError } = useSelector((state: RootStateOrAny) => state.auth);
   const formRef = useRef<FormHandles>(null);
   const dispatch = useDispatch();
-  const { addToast } = useToast();
+
+  // exemplo com hook useContext nativo do react
+  const { addToast } = useContext(ToastContext);
 
   const yupError = (err: any) => {
     const validationErrors = {};
@@ -67,19 +68,14 @@ export default function Login() {
     }
   };
 
-  const toastError = (title, message) => {
-    addToast({
-      type: 'error',
-      title,
-      description: message,
-    });
-  };
-
   useEffect(() => {
     if (credencialError !== '') {
-      toastError('Erro na Autenticação', ' Credenciais inválidas');
+      addToast({
+        type: 'error',
+        title: 'Erro na Autenticação',
+        description: ' Credenciais inválidas',
+      });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [credencialError]);
 
   return (

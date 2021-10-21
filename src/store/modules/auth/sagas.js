@@ -1,7 +1,6 @@
 import { takeLatest, put, call, all } from 'redux-saga/effects';
 import history from '../../../services/history';
 import { signInSuccess, signFailure } from './actions';
-
 import { TYPE_AUTH_SIGN_IN_REQUEST } from '../../../constants/types-reducers'
 
 export function* signIn({ payload }) {

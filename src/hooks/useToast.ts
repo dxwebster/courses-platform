@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useContext } from 'react';
-import { ToastContext, ToastContextData } from '../providers/ToastProvider';
+import { ToastContext } from '../providers/ToastProvider';
+import { ToastContextData } from '../interfaces/ToastInterface';
 
 export default function useToast(): ToastContextData {
   const context = useContext(ToastContext);

@@ -3,25 +3,9 @@ import { createContext, useCallback, useState } from 'react';
 import { v4 } from 'uuid';
 import Toast from '../components/Toast';
 
-export interface ToastMessageState {
-  id: string;
-  type?: 'success' | 'error' | 'info';
-  title: string;
-  description?: string;
-}
+import { ToastMessageState, ToastMessage, ToastContextData } from '../interfaces/ToastInterface';
 
-export interface ToastMessage {
-  type?: 'success' | 'error' | 'info';
-  title: string;
-  description?: string;
-}
-
-export interface ToastContextData {
-  addToast(message: ToastMessage): void;
-  removeToast(id: string): void;
-}
-
-export const ToastContext = createContext<ToastContextData>({} as ToastContextData);
+const ToastContext = createContext<ToastContextData>({} as ToastContextData);
 
 function ToastProvider({ children }: any) {
   const [messages, setMessages] = useState<ToastMessageState[]>([]);
@@ -52,4 +36,4 @@ function ToastProvider({ children }: any) {
   );
 }
 
-export { ToastProvider };
+export { ToastContext, ToastProvider };
