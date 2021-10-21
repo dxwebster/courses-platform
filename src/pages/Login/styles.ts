@@ -33,8 +33,29 @@ export const AnimationContainer = styled.div`
   justify-content: center;
   animation: ${appearFromTop} 1s;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    color: #00f8e2;
+    font-size: 2rem;
+  }
+
+  h5 {
+    color: white;
+    padding: 0.5rem 0 2rem;
+    font-size: 0.8rem;
+    font-weight: normal;
+    letter-spacing: 0.4rem;
+  }
+
+  img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
   form {
-    margin: 80px 0;
     width: 340px;
     text-align: center;
 

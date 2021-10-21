@@ -6,7 +6,7 @@
     secondary: '#11162f',
 
     text: '#9ca0bb',
-    title: '#49f2d2',
+    title: '#00F8E2',
     background: '#090909',
   },
 };

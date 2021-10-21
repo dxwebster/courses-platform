@@ -2,6 +2,16 @@ import { takeLatest, put, all } from 'redux-saga/effects';
 import history from '../../../services/history';
 import { signInSuccess, signFailure } from './actions';
 
+// import { useToast } from '../../../hooks/toast';
+// const { addToast } = useToast();
+
+// const toastError = (title, message) => {
+//   addToast({
+//     type: 'error',
+//     title: title,
+//     description: message,
+//   });
+// };
 
 export function* signIn({ payload }) {
   try {
@@ -15,7 +25,8 @@ export function* signIn({ payload }) {
   } catch (err) {
     const error = { message: 'Usuário ou Senha inválidos' };
     yield put(signFailure(error));
-    console.log(error)
+    console.log('Credenciais inválidas')
+    // toastError('Erro na Autenticação',' Credenciais inválidas');
   }
 }
 

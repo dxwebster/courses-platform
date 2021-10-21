@@ -11,8 +11,6 @@ import { signInRequest } from '../../store/modules/auth/actions';
 import { Container, Content, AnimationContainer, Button } from './styles';
 import Input from '../../components/Input';
 
-import { useToast } from '../../hooks/toast';
-
 interface FormData {
   user: string;
   senha: string;
@@ -21,7 +19,6 @@ interface FormData {
 export default function Login() {
   const formRef = useRef<FormHandles>(null);
   const dispatch = useDispatch();
-  const { addToast } = useToast();
 
   const yupError = (err: any) => {
     const validationErrors = {};
@@ -33,14 +30,6 @@ export default function Login() {
 
       formRef.current.setErrors(validationErrors);
     }
-  };
-
-  const toastError = () => {
-    addToast({
-      type: 'error',
-      title: 'Erro na autenticação',
-      description: 'Ocorreu um  erro ao fazer login, cheque as credenciais',
-    });
   };
 
   const validForm = async () => {
@@ -61,7 +50,6 @@ export default function Login() {
       return true;
     } catch (err) {
       yupError(err);
-      toastError();
       return false;
     }
   };
@@ -79,6 +67,9 @@ export default function Login() {
     <Container>
       <Content>
         <AnimationContainer>
+          <h3>CodeReview</h3>
+          <h5>aprenda online</h5>
+
           <Form ref={formRef} onSubmit={handleSubmit} onChange={validForm}>
             <Input placeholder="Digite seu user" name="user" type="text" />
             <Input placeholder="Digite sua senha" name="senha" type="password" />
@@ -86,11 +77,10 @@ export default function Login() {
             <Button type="submit" value="Acessar">
               Acessar
             </Button>
+
+            <Link to="/forgot-password">Esqueci minha senha</Link>
+            <Link to="/signup">Criar conta</Link>
           </Form>
-
-          <Link to="/forgot-password">Esqueci minha senha</Link>
-
-          <Link to="/signup">Criar conta</Link>
         </AnimationContainer>
       </Content>
     </Container>
