@@ -5,7 +5,7 @@ import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
 
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { signInRequest } from '../../store/modules/auth/actions';
 import { Container, Content, AnimationContainer, Button } from './styles';
@@ -18,9 +18,10 @@ interface FormData {
 }
 
 export default function Login() {
-  const { credencialError } = useSelector((state: RootStateOrAny) => state.auth);
+  const { credencialError, userLogged } = useSelector((state: RootStateOrAny) => state.auth);
   const formRef = useRef<FormHandles>(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // exemplo com hook useContext nativo do react
   const { addToast } = useContext(ToastContext);
@@ -77,6 +78,10 @@ export default function Login() {
       });
     }
   }, [credencialError]);
+
+  useEffect(() => {
+    if (userLogged) navigate('../dashboard', { replace: true });
+  }, [userLogged]);
 
   return (
     <Container>

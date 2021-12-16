@@ -1,7 +1,8 @@
 import { takeLatest, put, call, all } from 'redux-saga/effects';
-import history from '../../../services/history';
 import { signInSuccess, signFailure } from './actions';
 import { TYPE_AUTH_SIGN_IN_REQUEST } from '../../../constants/types-reducers'
+
+import api from "../../../services/api"
 
 export function* signIn({ payload }) {
   try {
@@ -9,17 +10,16 @@ export function* signIn({ payload }) {
     const url = '/auth';
     const body = { user, senha };
 
-    const { data } = yield call(api.post, url, body);
+    const { data } = yield call(api.get, url, body);
 
-    if (!data.success) throw data;
+    if (data.user !== user && data.senha !== senha) throw data;
 
-    yield put(signInSuccess(user, senha));
-    history.push('/inicio');
+    yield put(signInSuccess(data));
     
   } catch (err) {
     const error = { message: 'Usuário ou Senha inválidos' };
     yield put(signFailure(error));
-    console.log('Credenciais inválidas')
+    console.log(error)
   }
 }
 

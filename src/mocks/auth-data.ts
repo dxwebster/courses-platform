@@ -1,4 +1,4 @@
 export const authData = {
-  user: 'adriana',
+  user: 'admin',
   senha: '123',
 };

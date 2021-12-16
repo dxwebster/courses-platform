@@ -6,7 +6,7 @@ import {
 } from '../../../constants/types-reducers';
 
 export const INITIAL_STATE = {
-  logged: false,
+  userLogged: '',
   credencialError: ''
 };
 
@@ -15,7 +15,7 @@ export function auth(state = INITIAL_STATE, action) {
     switch (action.type) {
       
       case TYPE_AUTH_SIGN_IN_SUCCESS: {
-        draft.logged = action.payload;
+        draft.userLogged = action.payload.user;
         break;
       }
       case TYPE_AUTH_SIGN_IN_FAILURE: {

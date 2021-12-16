@@ -1,13 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 import React from 'react';
-import { Router, Switch } from 'react-router-dom';
-import { Route } from 'react-router';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './config/ReactotronConfig';
 import AppProvider from './providers/AppProvider';
-
-import history from './services/history';
 
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -21,13 +19,13 @@ function App() {
 
   return (
     <AppProvider>
-      <Router history={history}>
-        <Switch>
-          <Route path="/" exact component={Login} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/course" exact component={Course} />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<Login />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/course/*" element={<Course />} />
+        </Routes>
+      </BrowserRouter>
       <GlobalStyle />
     </AppProvider>
   );
