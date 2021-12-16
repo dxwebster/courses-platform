@@ -8,6 +8,7 @@ import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { signInRequest } from '../../store/modules/auth/actions';
+
 import { Container, Content, AnimationContainer, Button } from './styles';
 import Input from '../../components/Input';
 import { ToastContext } from '../../providers/ToastProvider';
@@ -18,7 +19,7 @@ interface FormData {
 }
 
 export default function Login() {
-  const { credencialError, userLogged } = useSelector((state: RootStateOrAny) => state.auth);
+  const { credencialError, userId } = useSelector((state: RootStateOrAny) => state.auth);
   const formRef = useRef<FormHandles>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -80,8 +81,10 @@ export default function Login() {
   }, [credencialError]);
 
   useEffect(() => {
-    if (userLogged) navigate('../dashboard', { replace: true });
-  }, [userLogged]);
+    if (userId) {
+      navigate('../dashboard', { replace: true });
+    }
+  }, [userId]);
 
   return (
     <Container>

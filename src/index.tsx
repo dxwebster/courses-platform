@@ -5,12 +5,17 @@ import App from './App';
 
 import { modules } from './mocks/modules-data';
 import { authData } from './mocks/auth-data';
+import { courses } from './mocks/courses-data';
 
 createServer({
   routes() {
     this.namespace = 'api';
 
-    this.get('/course/modules/1', () => {
+    this.get('/courses/', () => {
+      return courses;
+    });
+
+    this.get('/courses/modules/', () => {
       return modules;
     });
 

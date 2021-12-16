@@ -2,20 +2,26 @@ import produce from 'immer';
 
 import {
   TYPE_AUTH_SIGN_IN_SUCCESS,
-  TYPE_AUTH_SIGN_IN_FAILURE
+  TYPE_AUTH_SIGN_IN_FAILURE,
+  TYPE_AUTH_SIGN_IN_REQUEST
 } from '../../../constants/types-reducers';
 
 export const INITIAL_STATE = {
-  userLogged: '',
+  userId: '',
   credencialError: ''
 };
 
 export function auth(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
+
+      case TYPE_AUTH_SIGN_IN_REQUEST: {
+        draft.credencialError = '';
+        break;
+      }
       
       case TYPE_AUTH_SIGN_IN_SUCCESS: {
-        draft.userLogged = action.payload.user;
+        draft.userId = action.payload.user;
         break;
       }
       case TYPE_AUTH_SIGN_IN_FAILURE: {

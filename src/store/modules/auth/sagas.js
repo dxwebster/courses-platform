@@ -3,6 +3,7 @@ import { signInSuccess, signFailure } from './actions';
 import { TYPE_AUTH_SIGN_IN_REQUEST } from '../../../constants/types-reducers'
 
 import api from "../../../services/api"
+import { CookiesSet } from "../../../helpers/cookies"
 
 export function* signIn({ payload }) {
   try {
@@ -12,10 +13,13 @@ export function* signIn({ payload }) {
 
     const { data } = yield call(api.get, url, body);
 
-    if (data.user !== user && data.senha !== senha) throw data;
+    CookiesSet('userId', user, 1)
 
-    yield put(signInSuccess(data));
-    
+    if (data.user === user && data.senha === senha){
+      yield put(signInSuccess(data));
+    } else {
+      throw data;
+    }
   } catch (err) {
     const error = { message: 'Usuário ou Senha inválidos' };
     yield put(signFailure(error));
