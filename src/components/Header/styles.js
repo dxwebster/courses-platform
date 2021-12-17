@@ -11,7 +11,7 @@ export const Container = styled.header`
 
   background: ${(props) => props.theme.colors.title};
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-  padding: 10px 20px;
+  padding: 10px 60px;
   color: ${(props) => props.theme.colors.primary};
 
   position: relative;
@@ -101,7 +101,7 @@ export const Avatar = styled.img`
   height: 34px;
   width: 34px;
   border-radius: 50%;
-  margin: 0 15px;
+  margin: 0 0 0 15px;
   cursor: pointer;
 `;
 

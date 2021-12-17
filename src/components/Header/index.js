@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { Container, HeaderRight, HeaderLeft, Avatar, TooltipHeader } from './styles';
 
@@ -14,17 +14,22 @@ export default function Header() {
 
   const [fixed, setFixed] = useState(null);
 
+  const { pathname, state } = useLocation();
+
   return (
     <>
       <Container>
         <HeaderLeft>
           <ul>
-            <li>
-              <Link to="/">
-                <SvgArrowBack />
-                <span>Voltar</span>
-              </Link>
-            </li>
+            {pathname !== '/dashboard' && (
+              <li>
+                <Link to="/">
+                  <SvgArrowBack />
+                  <span>Voltar</span>
+                </Link>
+              </li>
+            )}
+
             <li>
               <img src={logoImg} alt="logo" />
             </li>

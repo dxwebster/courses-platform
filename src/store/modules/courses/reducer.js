@@ -41,8 +41,8 @@ export function courses(state = INITIAL_STATE, action) {
 
       case TYPE_COURSES_MODULES_SUCCESS: {
         draft.modules = action.payload;
-        draft.activeModule = action.payload.modules[0];
-        draft.activeLesson = action.payload.modules[0].lessons[0];
+        draft.activeModule = action.payload[0];
+        draft.activeLesson = action.payload[0].lessons[0];
         break;
       }
 

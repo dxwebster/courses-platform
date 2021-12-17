@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/*" element={<Login />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
-          <Route path="/courses/*" element={<Course />} />
+          <Route path="/course/*" element={<Course />} />
         </Routes>
       </BrowserRouter>
       <GlobalStyle />

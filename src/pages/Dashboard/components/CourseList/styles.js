@@ -15,12 +15,13 @@ export const CourseItem = styled.div`
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  background: #232129;
   transition: all 0.3s ease 0s;
-  cursor: pointer;
 
-  a {
+  button {
     color: white;
+    background: #232129;
+    text-align: left;
+    cursor: pointer;
   }
 
   &:hover{

@@ -15,7 +15,7 @@ createServer({
       return courses;
     });
 
-    this.get('/courses/modules/', () => {
+    this.get('/courses/modules/:id', () => {
       return modules;
     });
 

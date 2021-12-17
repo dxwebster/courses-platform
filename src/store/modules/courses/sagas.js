@@ -30,20 +30,27 @@ export function* getCourses() {
 }
 
 export function* getModules({ payload }) { 
-  const { courseId } = payload;
-
   try {
-    const url = `courses/modules/${courseId}`;
-    const { data } = yield call(api.get, url, null);
-
-    yield modulesSuccess(data);
-    console.log(data)
+    const { courseId } = payload;
     
+    const userCookie = CookiesGet('userId');
+    
+    const url = `courses/modules/${courseId}/`;
+    const configs = {
+      params: {
+        userId: userCookie,
+      },
+    };
+
+    const { data } = yield call(api.get, url, configs);
+
+    yield put(modulesSuccess(data))
+
   } catch (err) {
     const error = err.result ? err.result : { message: `Erro ao buscar módulos do curso selecionado.` };
 
     yield put(modulesFailure(error));
-    alert(error.message)
+    alert(err)
     
   }
 }
