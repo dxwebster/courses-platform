@@ -16,7 +16,7 @@ export default function CourseList() {
 
   useEffect(() => {
     if (userId) {
-      dispatch(coursesRequest(userId));
+      dispatch(coursesRequest());
     }
   }, []);
 

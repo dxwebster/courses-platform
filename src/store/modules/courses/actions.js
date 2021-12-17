@@ -10,10 +10,9 @@ import {
 } from '../../../constants/types-reducers'
 
 
-export function coursesRequest(userId) {
+export function coursesRequest() {
   return {
     type: TYPE_COURSES_REQUEST,
-    payload: { userId },
   };
 }
 export function coursesSuccess(courses) {

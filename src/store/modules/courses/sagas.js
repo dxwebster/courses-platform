@@ -1,19 +1,18 @@
 import { takeLatest, all, put, call} from 'redux-saga/effects';
-import api from '../../../services/api';
 import { coursesSuccess, coursesFailure, modulesSuccess, modulesFailure } from './actions';
-import {
-  TYPE_COURSES_REQUEST,
-  TYPE_COURSES_MODULES_REQUEST
-} from '../../../constants/types-reducers'
+import { TYPE_COURSES_REQUEST, TYPE_COURSES_MODULES_REQUEST } from '../../../constants/types-reducers'
 
-export function* getCourses({ payload }) { 
+import api from '../../../services/api';
+import { CookiesGet } from "../../../helpers/cookies"
+
+export function* getCourses() { 
   try {
-    const { userId } = payload;
+    const userCookie = CookiesGet('userId');
 
     const url = 'courses/';
     const configs = {
       params: {
-        userId,
+        userId: userCookie,
       },
     };
 
