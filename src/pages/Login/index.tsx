@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as Yup from 'yup';
 import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
@@ -8,10 +8,10 @@ import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { signInRequest } from '../../store/modules/auth/actions';
+import useToast from '../../hooks/useToast';
 
 import { Container, Content, AnimationContainer, Button } from './styles';
 import Input from '../../components/Input';
-import { ToastContext } from '../../providers/ToastProvider';
 
 interface FormData {
   user: string;
@@ -24,8 +24,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // exemplo com hook useContext nativo do react
-  const { addToast } = useContext(ToastContext);
+  const { addToast } = useToast();
 
   const yupError = (err: any) => {
     const validationErrors = {};
