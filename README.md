@@ -16,7 +16,6 @@
 ## 📥 Execute esse projeto no seu computador
 
 - Clonar Repositório: `git clone https://github.com/dxwebster/code-review.git`
-- Ir para a pasta: `cd React-Redux`
 - Instalar dependências: `yarn`
 - Rodar Aplicação: `yarn start`
 
