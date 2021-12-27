@@ -1,14 +1,23 @@
 ## Tecnologias utilizadas
 
-- axios
-- mirageJs
-- styled-components
-- redux
-- react-router-dom
-- polished
-- react-icons
-- @svgr/cli
-- polished
+### axios
+Cliente HTTP para fazer requisições à API
+
+### mirageJs
+Mock de API para construção do frontend
+
+### styled-components
+Estilização dos componentes com CSS-in-JS
+
+### redux 
+Redux para lidar com estados, seguindo a arquitetura Flux
+
+### redux-Saga
+Controla chamadas assíncronas à API
+
+### react-router-dom
+Lidar com o roteamento de sistemas baseados em componentes
+
 
 ## 📥 Execute esse projeto no seu computador
 
@@ -16,22 +25,6 @@
 - Ir para a pasta: `cd React-Redux`
 - Instalar dependências: `yarn`
 - Rodar Aplicação: `yarn start`
-
-## Tarefas em Branchs
-### Login
-- Autenticação de Login
-- Criação de roles de acesso
-- Página "Esqueci minha senha"
-- Página "Criar conta"
-### Páginas
-- Página "Meus Cursos"
-- Página "Perfil"
-- Página "Configurações"
-## Indicações na Sidebar
-- Término de aula
-- Módulo concluído
-- Curso Concluído
-
 
 ## 📕 Licença
 
