@@ -6,11 +6,11 @@
 
 - styled-components: `Estilização dos componentes com CSS-in-JS`
 
-- redux: `Controla estados seguindo a arquitetura Flux`
+- redux: `Controle e gerenciamento de estados`
 
-- redux-Saga: `Lida chamadas assíncronas à API`
+- redux-Saga: `Lida requisições assíncronas`
 
-- react-router-dom: `Lida com o roteamento de sistemas baseados em componentes`
+- react-router-dom: `Roteamento de sistemas baseados em componentes`
 
 
 ## 📥 Execute esse projeto no seu computador
