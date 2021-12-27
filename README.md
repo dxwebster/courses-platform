@@ -12,13 +12,12 @@
 
 ## 📥 Execute esse projeto no seu computador
 
-- Clonar Repositório: `git clone https://github.com/dxwebster/React-Redux`
+- Clonar Repositório: `git clone https://github.com/dxwebster/code-review.git`
 - Ir para a pasta: `cd React-Redux`
 - Instalar dependências: `yarn`
 - Rodar Aplicação: `yarn start`
 
 ## Tarefas em Branchs
-
 ### Login
 - Autenticação de Login
 - Criação de roles de acesso
@@ -28,7 +27,6 @@
 - Página "Meus Cursos"
 - Página "Perfil"
 - Página "Configurações"
-- Página "Histórico de Acesso"
 ## Indicações na Sidebar
 - Término de aula
 - Módulo concluído
