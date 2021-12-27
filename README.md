@@ -1,22 +1,16 @@
 ## Tecnologias utilizadas
 
-### axios
-Cliente HTTP para fazer requisições à API
+- axios: `Cliente HTTP para fazer requisições à API`
 
-### mirageJs
-Mock de API para construção do frontend
+- mirageJs: `Mock de API para construção do frontend`
 
-### styled-components
-Estilização dos componentes com CSS-in-JS
+- styled-components: `Estilização dos componentes com CSS-in-JS`
 
-### redux 
-Redux para lidar com estados, seguindo a arquitetura Flux
+- redux: `Redux para lidar com estados, seguindo a arquitetura Flux`
 
-### redux-Saga
-Controla chamadas assíncronas à API
+- redux-Saga: `Controla chamadas assíncronas à API`
 
-### react-router-dom
-Lidar com o roteamento de sistemas baseados em componentes
+- react-router-dom: `Lidar com o roteamento de sistemas baseados em componentes`
 
 
 ## 📥 Execute esse projeto no seu computador
