@@ -8,7 +8,7 @@ import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { signInRequest } from '../../store/modules/auth/actions';
-import useToast from '../../hooks/useToast';
+import { useToast } from '../../hooks/useToast';
 
 import { Container, Content, AnimationContainer, Button } from './styles';
 import Input from '../../components/Input';

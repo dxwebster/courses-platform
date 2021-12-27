@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-console */
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -9,7 +6,7 @@ import AppProvider from './providers/AppProvider';
 
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import Course from './pages/Dashboard/components/Course';
+import Course from './pages/Course';
 
 import GlobalStyle from './styles/global';
 

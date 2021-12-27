@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FiAlertCircle, FiCheckCircle, FiInfo, FiXCircle } from 'react-icons/fi';
-import useToast from '../../hooks/useToast';
+import { useToast } from '../../hooks/useToast';
 
 import { Container } from './styles';
 

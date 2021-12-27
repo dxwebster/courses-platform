@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Container, CourseItem } from './styles';
-import course01 from '../../../../assets/01.jpg';
-import course02 from '../../../../assets/02.jpg';
-import course03 from '../../../../assets/03.jpg';
+import course01 from '../../assets/01.jpg';
+import course02 from '../../assets/02.jpg';
+import course03 from '../../assets/03.jpg';
 
-import { coursesRequest, modulesRequest } from '../../../../store/modules/courses/actions';
+import { coursesRequest, modulesRequest } from '../../store/modules/courses/actions';
 
 export default function CourseList() {
   const { courses, loading } = useSelector((state: RootStateOrAny) => state.courses);

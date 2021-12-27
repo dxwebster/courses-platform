@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, ModuleList, LessonList, Lesson, ButtonSection, ModuleSection } from './styles';
 
-import { selectLesson, setCollapseSidebar} from '../../../../../../store/modules/courses/actions';
+import { selectLesson, setCollapseSidebar} from '../../store/modules/courses/actions';
 
 function Sidebar() {
   const { modules, collapseSidebar } = useSelector((state) => state.courses);

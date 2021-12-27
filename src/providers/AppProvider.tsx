@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../styles/themes/themeDefault';
 import { store } from '../store';
 
-import { ToastProvider } from './ToastProvider';
+import { ToastProvider } from '../hooks/useToast';
 
 const AppProvider = ({ children }: any) => (
   <Provider store={store}>

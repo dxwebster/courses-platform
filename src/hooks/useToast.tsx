@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, useCallback, useState, useContext } from 'react';
 import { v4 } from 'uuid';
 import Toast from '../components/Toast';
 
@@ -36,4 +36,14 @@ function ToastProvider({ children }: any) {
   );
 }
 
-export { ToastContext, ToastProvider };
+function useToast(): ToastContextData {
+  const context = useContext(ToastContext);
+
+  if (!context) {
+    throw new Error('useToast must be used within a ToastPRovider');
+  }
+
+  return context;
+}
+
+export { ToastProvider, useToast };

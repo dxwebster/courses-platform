@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector, RootStateOrAny } from 'react-redux';
 
 import { Container, HeaderRight, HeaderLeft, Avatar, TooltipHeader } from './styles';
 
@@ -11,10 +14,9 @@ import logoImg from '../../assets/logo.svg';
 import avatarImg from '../../assets/avatar.png';
 
 export default function Header() {
-
+  const { name } = useSelector((state: RootStateOrAny) => state.auth);
   const [fixed, setFixed] = useState(null);
-
-  const { pathname, state } = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -46,18 +48,30 @@ export default function Header() {
             </li>
           </ul>
 
-          <main onClick={() => { setFixed(!fixed) }}>
-            <p>Adriana Shikasho</p>
-            <Avatar src={avatarImg} alt="Avatar"/>
+          <main
+            onClick={() => {
+              setFixed(!fixed);
+            }}
+          >
+            <p>{name}</p>
+            <Avatar src={avatarImg} alt="Avatar" />
           </main>
         </HeaderRight>
-  
+
         <TooltipHeader fixed={fixed}>
           <ul>
-            <li><SvgProfile /> Meu perfil</li>
-            <li><SvgProfile /> Meus cursos</li>
-            <li><SvgProfile /> Configurações</li>
-            <li><SvgProfile /> Sair</li>
+            <li>
+              <SvgProfile /> Meu perfil
+            </li>
+            <li>
+              <SvgProfile /> Meus cursos
+            </li>
+            <li>
+              <SvgProfile /> Configurações
+            </li>
+            <li>
+              <SvgProfile /> Sair
+            </li>
           </ul>
         </TooltipHeader>
       </Container>

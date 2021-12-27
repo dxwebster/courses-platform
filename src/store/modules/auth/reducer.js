@@ -8,6 +8,7 @@ import {
 
 export const INITIAL_STATE = {
   userId: '',
+  name: '',
   credencialError: ''
 };
 
@@ -22,6 +23,7 @@ export function auth(state = INITIAL_STATE, action) {
       
       case TYPE_AUTH_SIGN_IN_SUCCESS: {
         draft.userId = action.payload.user;
+        draft.name = action.payload.name;
         break;
       }
       case TYPE_AUTH_SIGN_IN_FAILURE: {

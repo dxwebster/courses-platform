@@ -15,7 +15,6 @@ export const Container = styled.header`
   color: ${(props) => props.theme.colors.primary};
 
   position: relative;
-
 `;
 export const HeaderLeft = styled.div`
   display: flex;
@@ -44,13 +43,13 @@ export const HeaderLeft = styled.div`
         justify-content: center;
         color: ${(props) => props.theme.colors.primary};
 
-        svg{
+        svg {
           margin-right: 8px;
         }
       }
     }
   }
-`
+`;
 
 export const HeaderRight = styled.div`
   display: flex;
@@ -58,7 +57,6 @@ export const HeaderRight = styled.div`
   justify-content: center;
   font-size: 14px;
   font-weight: bold;
-
 
   ul {
     display: flex;
@@ -75,8 +73,8 @@ export const HeaderRight = styled.div`
       transition: all 0.4s ease;
 
       &:hover {
-          background-color: ${props => darken(0.2, props.theme.colors.title)};
-        }
+        background-color: ${(props) => darken(0.2, props.theme.colors.title)};
+      }
 
       & + li {
         margin-left: 10px;
@@ -105,7 +103,11 @@ export const Avatar = styled.img`
   cursor: pointer;
 `;
 
-export const TooltipHeader = styled.div`
+interface TooltipHeaderProps {
+  fixed: string;
+}
+
+export const TooltipHeader = styled.div<TooltipHeaderProps>`
   width: 200px;
   font-size: 14px;
 
@@ -123,20 +125,20 @@ export const TooltipHeader = styled.div`
   right: 10px;
   top: 70px;
 
-  visibility: ${props => (props.fixed ? 'visible' : 'hidden')};
-  opacity: ${props => (props.fixed ? '1' : '0')};
+  visibility: ${(props) => (props.fixed ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.fixed ? '1' : '0')};
 
   ul {
     width: 100%;
 
     li {
-      padding: 7px 10px ;
+      padding: 7px 10px;
       cursor: pointer;
       display: flex;
       align-items: center;
 
       &:hover {
-        background-color: ${props => darken(0.2, props.theme.colors.title)};
+        background-color: ${(props) => darken(0.2, props.theme.colors.title)};
       }
 
       svg {
@@ -144,7 +146,6 @@ export const TooltipHeader = styled.div`
       }
     }
   }
-
 
   &:before {
     content: '';
@@ -164,5 +165,4 @@ export const TooltipHeader = styled.div`
     top: -10px;
     z-index: -1;
   }
-
 `;
